@@ -89,6 +89,10 @@ padding:9px 13px 8px;border-radius:8px;transform:rotate(-3deg);box-shadow:0 3px 
 .tarifas{width:100%;border-collapse:collapse;margin-top:6px;font-size:.97rem}
 .tarifas td{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14)}.tarifas td+td{text-align:right;font-weight:700;color:var(--cartel)}
 .nota{font-size:.88rem;color:#aab1c8;margin-top:12px}
+.garantias{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.garantias li{position:relative;padding-left:34px}.garantias li::before{content:"";position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%;
+background:var(--cartel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3L15 6.8' fill='none' stroke='%231b2340' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+.garantias b{display:block}.garantias span{color:#c9cee0}
 .seguro{display:flex;gap:14px;align-items:center;margin-top:22px;padding:14px 16px;border-radius:14px;background:#fff;color:#1b2340}
 .seguro img{flex:none}.seguro p{margin:0;color:#1b2340;font-size:.92rem}
 .redirige{margin:0 0 22px;padding:14px 16px;border-radius:14px;background:var(--sup);font-size:.97rem}
@@ -131,11 +135,11 @@ footer a{color:var(--tinta)}
 <div class="cta"><a class="btn" href="ofertas.html">Ver chollos</a><a class="btn sec" href="#como">Cómo funciona</a></div></div>
 <div class="masc"><img src="img/mascota.png" alt="La mascota de Chorízalo: un chorizo con antifaz"></div></section>
 <div class="cats"><a class="cat" href="c/chollo.html"><img src="img/chollo.webp" alt=""><b>Tecnología</b>
-<span>35 chollos</span></a><a class="cat" href="c/moda.html"><img src="img/moda.webp" alt=""><b>Moda</b>
+<span>36 chollos</span></a><a class="cat" href="c/moda.html"><img src="img/moda.webp" alt=""><b>Moda</b>
 <span>134 chollos</span></a><a class="cat" href="c/pokemon.html"><img src="img/pokemon.webp" alt=""><b>Pokémon</b>
 <span>5 chollos</span></a><a class="cat" href="c/libro.html"><img src="img/libro.webp" alt=""><b>Libros</b>
 <span>17 chollos</span></a><a class="cat" href="c/coche.html"><img src="img/coche.webp" alt=""><b>Coches</b>
-<span>16 chollos</span></a><a class="cat" href="c/moto.html"><img src="img/moto.webp" alt=""><b>Motos</b>
+<span>17 chollos</span></a><a class="cat" href="c/moto.html"><img src="img/moto.webp" alt=""><b>Motos</b>
 <span>0 chollos</span></a><a class="cat" href="c/casa.html"><img src="img/casa.webp" alt=""><b>Casas</b>
 <span>5 chollos</span></a><a class="cat" href="c/tren.html"><img src="img/tren.webp" alt=""><b>Trenes</b>
 <span>65 chollos</span></a></div>
@@ -149,10 +153,10 @@ footer a{color:var(--tinta)}
 <p>No vendemos nada nuestro: buscamos el chollo, negociamos con el vendedor y nos encargamos de la compra por ti.</p>
 <ol class="pasos"><li><div><b>Eliges el chollo</b><span>Pulsa «Consíguemelo» y verás el precio final con todo incluido, sin sorpresas.</span></div></li>
 <li><div><b>Reservas el pago con PayPal</b><span>El dinero solo se cobra cuando el producto es tuyo. Si se vende antes o no está bien, anulamos la reserva y no pagas nada.</span></div></li>
-<li><div><b>Regateamos y lo revisamos</b><span>Pedimos fotos y detalles al vendedor e intentamos bajar el precio. Si conseguimos rebajarlo, te devolvemos la mitad de la rebaja.</span></div></li>
+<li><div><b>Revisamos el estado y regateamos</b><span>Revisamos el estado del producto, pedimos más fotos al vendedor y regateamos el precio.</span></div></li>
 <li><div><b>Te llega a casa</b><span>Con el envío protegido de la plataforma. Si llega mal o no es lo que decía el anuncio, reclamamos nosotros y te devolvemos el dinero.</span></div></li></ol></div>
-<div><h2>Lo que cuesta</h2><p>Una cantidad fija según el precio del chollo, más el envío y el pago con PayPal. Solo te ofrecemos la compra cuando el total sale claramente por debajo de su precio normal.</p>
-<table class="tarifas"><tr><td>Hasta 5 €</td><td>+1 €</td></tr><tr><td>Hasta 10 €</td><td>+2 €</td></tr><tr><td>Hasta 15 €</td><td>+3 €</td></tr><tr><td>Hasta 25 €</td><td>+4 €</td></tr><tr><td>Hasta 40 €</td><td>+5 €</td></tr><tr><td>Hasta 55 €</td><td>+6 €</td></tr><tr><td>Más de 55 €</td><td>10 %</td></tr></table><p class="nota">Si eres PRO, 1 € menos en cada compra.</p>
+<div><h2>Tu compra, en buenas manos</h2><ul class="garantias"><li><b>Revisamos el estado del producto</b><span>Antes de comprar, comprobamos que es lo que dice el anuncio.</span></li><li><b>Pedimos más fotos al vendedor</b><span>De los detalles que importan: golpes, desgaste, etiquetas, número de serie.</span></li><li><b>Regateamos el precio</b><span>Si conseguimos rebajarlo, te devolvemos la mitad de la rebaja.</span></li><li><b>Si no nos convence, no compramos</b><span>Anulamos la reserva y no pagas nada.</span></li><li><b>Reclamamos por ti</b><span>Si llega mal o no es lo que decía el anuncio, nos encargamos y te devolvemos el dinero.</span></li></ul>
+<p class="nota">Solo te ofrecemos la compra cuando el total, con envío incluido, sale claramente por debajo de su precio normal. Si eres PRO, te sale 1 € más barata.</p>
 <div class="seguro"><img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-color.svg" alt="PayPal" width="96" height="26"><p>Pagas con PayPal y nunca nos das tu tarjeta. Tu compra queda cubierta por la Protección del Comprador de PayPal, según sus condiciones.</p></div></div></section><section class="pro" id="pro"><div><h3>Hazte PRO en Telegram</h3>
 <p>Todos los chollos al momento de publicarse, con el enlace directo al anuncio, y 1 € menos en cada compra que te hagamos.
 Aquí ves una selección; los mejores se van en minutos.</p></div>
