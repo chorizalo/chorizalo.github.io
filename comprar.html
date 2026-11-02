@@ -175,8 +175,9 @@ function compensa(d){const x=desglose(d);return x&&d.r&&x.total<=d.r*0.92?x:null
 const TG="https://t.me/addlist/U82eonj36ehlZmY0",PPL="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-color.svg",CT="https://t.me/RadarChollosPhantom_bot?start=pedido_";
 const id=new URLSearchParams(location.search).get('id');const $=s=>document.querySelector(s);
 fetch('data/ofertas.json?'+Date.now()).then(r=>r.json()).then(j=>{
- const d=j.ofertas.find(o=>o.id===id);const x=d&&desglose(d);
- if(!d||!x){$('#c').innerHTML='<div class="texto"><h1>Este chollo ya no está</h1><p>Seguramente se vendió. Mira los <a href="ofertas.html">chollos de ahora</a>.</p></div>';return}
+ const d=j.ofertas.find(o=>o.id===id);const x=d&&compensa(d);
+ if(!d){$('#c').innerHTML='<div class="texto"><h1>Lo estamos preparando</h1><p>Este chollo acaba de salir y en unos minutos tendrás aquí todos los detalles. Mientras, mira los <a href="ofertas.html">chollos de ahora</a> o <a href="'+CT+id+'" target="_blank" rel="noopener">pregúntanos por él</a>.</p></div>';return}
+ if(!x){$('#c').innerHTML='<div class="texto"><h1>Este no compensa comprarlo por encargo</h1><p>Con el envío incluido ya no sale claramente más barato que su precio normal, así que no te lo vamos a cobrar. En los canales <a href="'+(PRO[d.c]||'index.html#pro')+'">PRO</a> tienes el enlace directo al anuncio, o mira otros <a href="ofertas.html">chollos de ahora</a>.</p></div>';return}
  document.title=d.t+' · Chorízalo';
  $('#c').innerHTML=`<div class="ph">${d.i?`<img src="${esc(d.i)}" referrerpolicy="no-referrer" alt="">`:`<img class="logo-c" src="img/${d.c}.webp" alt="">`}</div>
  <div><h1>${esc(d.t)}</h1><div class="sub">${esc(d.s)}</div>
