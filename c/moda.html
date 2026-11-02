@@ -1,81 +1,185 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Choriza la Moda · chollos por debajo de mercado</title><meta name="description" content="Zapatillas y ropa de marca de segunda mano a precio de risa.">
-<link rel="canonical" href="https://chorizalo.github.io/c/moda.html"><meta property="og:title" content="Choriza la Moda · chollos por debajo de mercado">
-<meta property="og:description" content="Zapatillas y ropa de marca de segunda mano a precio de risa."><meta property="og:image" content="https://chorizalo.github.io/img/chollo.jpg">
-<link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/img/mascota.png"><style>
-:root{--bg:#0f0d0c;--card:#1a1716;--ink:#f6efe9;--mut:#b3a59a;--acc:#ff5a36;--acc2:#ffb703;--ok:#2ec27e;--line:#2b2523;--r:18px}
-@media (prefers-color-scheme:light){:root{--bg:#fbf7f3;--card:#fff;--ink:#1d1715;--mut:#6d625a;--line:#eee3da}}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-a{color:inherit;text-decoration:none}.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
-header.top{position:sticky;top:0;z-index:9;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:14px;height:62px}.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;font-size:1.15rem}
-.logo img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--acc)}.nav .sp{flex:1}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--acc);color:#fff;font-weight:700;border:0;cursor:pointer}
-.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
-.hero{padding:56px 0 30px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
-.hero h1{font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.02;margin:0 0 14px;letter-spacing:-.04em}
-.hero h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{color:var(--mut);font-size:1.12rem;max-width:560px}.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.hero img{width:100%;max-width:380px;border-radius:50%;justify-self:center;box-shadow:0 30px 80px -30px var(--acc)}
-.stats{display:flex;gap:26px;margin-top:22px;color:var(--mut)}.stats b{display:block;color:var(--ink);font-size:1.6rem}
-h2{font-size:1.6rem;letter-spacing:-.02em;margin:40px 0 16px}
-.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.cat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;gap:14px;align-items:center;transition:.2s}
-.cat:hover{transform:translateY(-3px);border-color:var(--acc)}.cat img{width:64px;height:64px;border-radius:50%;object-fit:cover}
-.cat h3{margin:0;font-size:1.05rem}.cat p{margin:2px 0 0;color:var(--mut);font-size:.88rem}.cat .n{color:var(--acc);font-weight:700;font-size:.85rem}
-.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0 16px}
-.chip{padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:.92rem;user-select:none}
-.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
-.bar input,.bar select{padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
-.bar input[type=search]{flex:1;min-width:200px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.deal{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.2s}
-.deal:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px #000}
-.deal .ph{aspect-ratio:4/3;background:#2a2421 center/cover no-repeat;position:relative}
-.deal .badge{position:absolute;top:10px;left:10px;background:var(--acc);color:#fff;font-weight:800;border-radius:999px;padding:4px 10px;font-size:.85rem}
-.deal .sc{position:absolute;top:10px;right:10px;background:#000a;color:#fff;border-radius:999px;padding:4px 10px;font-size:.8rem}
-.deal .bd{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}.deal h4{margin:0;font-size:.98rem;line-height:1.3}
-.deal .sub{color:var(--mut);font-size:.84rem}.deal .pr{display:flex;gap:10px;align-items:baseline;margin-top:auto}
-.deal .pr b{font-size:1.35rem}.deal .pr s{color:var(--mut)}.deal .meta{display:flex;justify-content:space-between;color:var(--mut);font-size:.78rem}
-.empty{color:var(--mut);padding:40px;text-align:center;border:1px dashed var(--line);border-radius:var(--r)}
-.band{margin:50px 0;padding:28px;border-radius:24px;background:linear-gradient(120deg,#ff5a3622,#ffb70322);border:1px solid var(--line);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-.band h3{margin:0 0 6px;font-size:1.35rem}.band p{margin:0;color:var(--mut)}
-footer{border-top:1px solid var(--line);margin-top:50px;padding:26px 0 40px;color:var(--mut);font-size:.88rem}
-.guides{display:flex;flex-wrap:wrap;gap:8px}.guides a{padding:8px 12px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-size:.88rem}
-@media (max-width:760px){.hero{grid-template-columns:1fr}.hero img{max-width:220px}}
-</style></head><body><header class="top"><div class="wrap nav"><a class="logo" href="../index.html"><img src="/img/mascota.png" alt="" style="border-radius:50%">Choriza</a>
-<span class="sp"></span><a class="btn ghost" href="../ofertas.html">Ofertas</a>
-<a class="btn" href="https://t.me/addlist/U82eonj36ehlZmY0" target="_blank" rel="noopener">Telegram</a></div></header><main class="wrap"><section class="hero"><div><h1>👟 Choriza la Moda</h1><p>Zapatillas y ropa de marca de segunda mano a precio de risa.</p>
-<div class="cta"><a class="btn" href="https://t.me/chorizalamoda" target="_blank" rel="noopener">Canal de Telegram</a></div></div>
-<img src="../img/moda.jpg" alt="" onerror="this.style.display='none'"></section><div class="bar"><span class="chip" data-c="chollo">📱 el Chollo</span><span class="chip" data-c="moda">👟 la Moda</span><span class="chip" data-c="pokemon">🃏 el Pokémon</span><span class="chip" data-c="libro">📚 el Libro</span><span class="chip" data-c="coche">🚗 el Coche</span><span class="chip" data-c="casa">🏠 la Casa</span><span class="chip" data-c="tren">🚆 el Tren</span><span class="chip" data-c="moto">🏍️ la Moto</span><span class="chip" id="hot">🔥 Solo destacados</span></div>
-<div class="bar"><input id="q" type="search" placeholder="Busca: iPhone, Dunk, Golf, Madrid…">
-<select id="sort"><option value="new">Más recientes</option><option value="disc">Mayor descuento</option><option value="score">Mejor nota</option><option value="cheap">Más baratos</option></select>
-<select id="min"><option value="0">Cualquier descuento</option><option value="20">≥ 20 %</option><option value="30">≥ 30 %</option><option value="40">≥ 40 %</option></select>
-<b id="n" style="margin-left:auto"></b></div><div class="grid" id="grid"></div>
-<script>window.PRESET="moda";window.CN={"chollo": "el Chollo", "moda": "la Moda", "pokemon": "el Pok\u00e9mon", "libro": "el Libro", "coche": "el Coche", "casa": "la Casa", "tren": "el Tren", "moto": "la Moto"};
-const S={cat:new URLSearchParams(location.search).get('c')||window.PRESET||'',q:'',sort:'new',min:0,hot:false};
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Moda de segunda mano por debajo de su precio | Chorízalo</title><meta name="description" content="Zapatillas y ropa de marca de segunda mano a precio de risa.">
+<link rel="canonical" href="https://chorizalo.github.io/c/moda.html"><meta property="og:title" content="Moda de segunda mano por debajo de su precio | Chorízalo">
+<meta property="og:description" content="Zapatillas y ropa de marca de segunda mano a precio de risa."><meta property="og:image" content="https://chorizalo.github.io/img/mascota.png">
+<meta name="color-scheme" content="light dark"><meta name="theme-color" content="#1b2340"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/img/mascota.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{--noche:#1b2340;--pimenton:#d8402b;--pimenton2:#b5311f;--cartel:#ffd43b;--fondo:#ffffff;--tinta:#1b2340;--sup:#eef0f5;--linea:#dfe3ec;
+--gris:#59607a;--verde:#1f7a52;--bloque:#1b2340;--bloque2:#2a345c;--disp:"Bowlby One",Impact,"Arial Black",sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--fondo);color:var(--tinta);font:17px/1.55 "Familjen Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}img{max-width:100%}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:3px solid var(--pimenton);outline-offset:2px;border-radius:6px}
+/* barra */
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--fondo) 92%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--linea)}
+.nav{display:flex;align-items:center;gap:6px;min-height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--disp);font-size:1.35rem;letter-spacing:.01em;margin-right:auto}
+.logo img{width:42px;height:42px}
+.nav a.l{padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600}.nav a.l:hover{background:var(--sup)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:12px;background:var(--pimenton);
+color:#fff;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:700;line-height:1.2}
+.btn:hover{background:var(--pimenton2)}
+.btn.sec{background:var(--fondo);color:var(--tinta);box-shadow:inset 0 0 0 2px var(--tinta)}.btn.sec:hover{background:var(--sup)}
+.btn.osc{background:var(--bloque);color:#fff}.btn.osc:hover{background:var(--bloque2)}
+@media (max-width:720px){.nav a.l{display:none}}
+/* portada */
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;padding-block:56px 40px}
+.hero h1{font-family:var(--disp);font-weight:400;font-size:clamp(2.3rem,5.6vw,4.4rem);line-height:.98;margin:0 0 22px;letter-spacing:-.005em}
+.hero p{font-size:1.18rem;color:var(--gris);max-width:34em;margin:0 0 26px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.masc{position:relative;justify-self:center;width:min(100%,380px);aspect-ratio:1}
+.masc::before{content:"";position:absolute;inset:6% -4% -4% 6%;border-radius:50%;background:var(--pimenton)}
+.masc img{position:relative;width:100%;height:100%;animation:entra .7s cubic-bezier(.2,.9,.3,1.3) both}
+@keyframes entra{from{transform:rotate(-14deg) scale(.85);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.masc img{animation:none}}
+@media (max-width:820px){.hero{grid-template-columns:1fr;padding-block:32px 20px}.masc{width:min(70%,260px);order:-1}}
+h2{font-family:var(--disp);font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.05;margin:56px 0 18px}
+/* categorías como pegatinas */
+.cats{display:grid;grid-template-columns:repeat(8,1fr);gap:14px}
+.cat{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;text-decoration:none;padding:10px 4px;border-radius:16px}
+.cat:hover{background:var(--sup)}
+.cat img{width:100%;max-width:120px;aspect-ratio:1;filter:drop-shadow(0 6px 10px rgba(27,35,64,.18))}
+.cat b{font-size:1rem}.cat span{font-size:.85rem;color:var(--gris)}
+@media (max-width:900px){.cats{grid-template-columns:repeat(4,1fr)}}
+/* filtros */
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:7px 13px 7px 7px;border-radius:999px;background:var(--sup);cursor:pointer;
+font:inherit;font-size:.93rem;font-weight:600;color:var(--tinta);border:0}
+.chip img{width:24px;height:24px}.chip.solo{padding-left:13px}
+.chip[aria-pressed=true]{background:var(--tinta);color:#fff}
+.campos{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;margin-bottom:20px}
+.campos input,.campos select{font:inherit;font-size:.97rem;color:var(--tinta);background:var(--fondo);border:2px solid var(--linea);border-radius:12px;
+height:46px;padding:0 14px;min-width:0}
+.campos select{appearance:none;-webkit-appearance:none;padding-right:42px;cursor:pointer;
+background:var(--fondo) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%231b2340' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 15px center}
+.campos input:focus,.campos select:focus{border-color:var(--tinta);outline:none}
+.cuenta{color:var(--gris);font-size:.95rem;margin:-6px 0 14px}
+@media (max-width:640px){.campos{grid-template-columns:1fr 1fr}.campos input{grid-column:1/-1}}
+/* tarjetas */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px 18px}
+.deal{display:flex;flex-direction:column;border-radius:16px;background:var(--fondo);box-shadow:0 0 0 1px var(--linea);overflow:hidden}
+.ph{position:relative;aspect-ratio:4/3;min-height:0;background:var(--sup)}
+.ph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ph>img.logo-c{object-fit:contain;padding:14%}
+.desc{position:absolute;top:10px;left:10px;background:var(--pimenton);color:#fff;font-weight:700;border-radius:8px;padding:3px 8px;font-size:.88rem}
+.tag{position:absolute;right:10px;bottom:-16px;background:var(--cartel);color:#1b2340;font-family:var(--disp);font-size:1.3rem;line-height:1;
+padding:9px 13px 8px;border-radius:8px;transform:rotate(-3deg);box-shadow:0 3px 0 rgba(27,35,64,.25)}
+.tag small{display:block;font-family:"Familjen Grotesk",sans-serif;font-size:.68rem;font-weight:600;margin-bottom:2px}
+.bd{display:flex;flex-direction:column;gap:6px;padding:24px 14px 14px;flex:1}
+.bd h3{font-size:1rem;line-height:1.3;margin:0;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bd .sub{color:var(--gris);font-size:.88rem}
+.bd .mer{font-size:.9rem}.bd .mer s{color:var(--gris)}.bd .mer b{color:var(--verde)}
+.bd .btn{margin-top:auto;width:100%;padding:11px 14px}
+.bd .pie{display:flex;justify-content:space-between;color:var(--gris);font-size:.8rem;margin-top:4px}
+.vacio{grid-column:1/-1;padding:40px 20px;text-align:center;background:var(--sup);border-radius:16px}
+/* trenes: cartel de ruta en vez de foto */
+.ruta{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:18px;color:#fff;overflow:hidden}
+.ruta::after{content:"";position:absolute;inset:auto -20% -40% auto;width:80%;aspect-ratio:1;border-radius:50%;border:18px solid rgba(255,255,255,.12)}
+.ruta b{font-family:var(--disp);font-weight:400;font-size:1.45rem;line-height:1.05}
+.ruta i{font-style:normal;opacity:.8;font-size:.9rem;margin:2px 0}
+.ruta .hora{margin-top:10px;font-weight:700;font-size:.92rem;opacity:.95}
+/* cómo funciona */
+.servicio{background:var(--bloque);color:#fff;border-radius:28px;padding:40px clamp(20px,4vw,48px);margin-top:64px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.servicio h2{margin-top:0}.servicio p{color:#c9cee0}
+.pasos{list-style:none;padding:0;margin:0;display:grid;gap:18px;counter-reset:p}
+.pasos li{counter-increment:p;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.pasos li::before{content:counter(p);font-family:var(--disp);font-size:1.3rem;width:44px;height:44px;border-radius:50%;background:var(--cartel);color:#1b2340;display:grid;place-items:center}
+.pasos b{display:block;font-size:1.05rem}.pasos span{color:#c9cee0}
+.tarifas{width:100%;border-collapse:collapse;margin-top:6px;font-size:.97rem}
+.tarifas td{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14)}.tarifas td+td{text-align:right;font-weight:700;color:var(--cartel)}
+.nota{font-size:.88rem;color:#aab1c8;margin-top:12px}
+@media (max-width:820px){.servicio{grid-template-columns:1fr}}
+.pro{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-top:28px;padding:28px;border-radius:24px;background:var(--cartel);color:#1b2340}.pro .btn.osc{background:#1b2340}
+.pro>div:first-child{flex:1;min-width:240px}.prol{display:flex;flex-wrap:wrap;gap:8px;max-width:460px}
+.prol a{display:inline-flex;align-items:center;gap:7px;padding:6px 13px 6px 6px;border-radius:999px;background:#1b2340;color:#fff;text-decoration:none;font-weight:600;font-size:.92rem}
+.prol a:hover{background:#2a345c}.prol img{width:26px;height:26px}
+[id]{scroll-margin-top:84px}.pro h3{font-family:var(--disp);font-weight:400;font-size:1.5rem;margin:0 0 6px}.pro p{margin:0}
+/* cabecera de categoría */
+.chead{display:flex;align-items:center;gap:28px;padding-block:40px 24px;flex-wrap:wrap}
+.chead img{width:150px;height:150px}.chead h1{font-family:var(--disp);font-weight:400;font-size:clamp(2rem,5vw,3.2rem);margin:0 0 6px;line-height:1}
+.chead p{margin:0 0 16px;color:var(--gris);max-width:36em}.chead .cta{display:flex;gap:10px;flex-wrap:wrap}
+/* compra */
+.compra{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding-block:40px}
+.compra .ph{border-radius:18px;overflow:hidden;align-self:start}
+.compra h1{font-family:var(--disp);font-weight:400;font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.05;margin:0 0 8px}
+.desglose{width:100%;border-collapse:collapse;margin:18px 0}
+.desglose td{padding:10px 0;border-bottom:1px solid var(--linea)}.desglose td+td{text-align:right;font-variant-numeric:tabular-nums}
+.desglose tr.total td{border:0;font-family:var(--disp);font-size:1.5rem;padding-top:16px}
+.aviso{background:var(--sup);border-radius:14px;padding:14px 16px;font-size:.95rem}
+#pp{margin-top:18px;max-width:420px}
+@media (max-width:820px){.compra{grid-template-columns:1fr}}
+.texto{max-width:44em;padding-block:40px}.texto h1{font-family:var(--disp);font-weight:400;font-size:2.2rem;line-height:1.05}
+footer{margin-top:72px;padding-block:36px 48px;background:var(--sup);color:var(--gris);font-size:.9rem}
+footer h2{font-size:1.2rem;color:var(--tinta);margin:0 0 12px}
+.guias{display:flex;flex-wrap:wrap;gap:6px 14px;margin-bottom:24px}.guias a{color:var(--tinta)}
+@media (prefers-color-scheme:dark){:root{--fondo:#121830;--tinta:#f2f3f8;--sup:#1d2442;--linea:#2c355a;--gris:#a8afc8;--bloque:#0a0f22;--bloque2:#1d2442;--verde:#5cc994;color-scheme:dark}
+.campos select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23f2f3f8' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E")}
+.chip[aria-pressed=true]{background:var(--cartel);color:#1b2340}.servicio{box-shadow:0 0 0 1px var(--linea)}}
+</style></head><body><header class="top"><div class="wrap nav"><a class="logo" href="../index.html"><img src="../img/mascota.png" alt="">Chorízalo</a>
+<a class="l" href="../ofertas.html">Chollos</a><a class="l" href="../index.html#como">Te lo compramos</a><a class="l" href="../index.html#pro">PRO</a>
+<a class="btn osc" href="https://t.me/addlist/U82eonj36ehlZmY0" target="_blank" rel="noopener">Telegram</a></div></header><main class="wrap"><section class="chead"><img src="../img/moda.webp" alt=""><div><h1>Moda</h1><p>Zapatillas y ropa de marca de segunda mano a precio de risa.</p>
+<div class="cta"><a class="btn osc" href="https://t.me/chorizalamoda" target="_blank" rel="noopener">Canal gratis</a><a class="btn sec" href="https://t.me/+bSo65-LRMUY4ODY0" target="_blank" rel="noopener">Hazte PRO</a></div></div></section><div class="bar"><button class="chip" data-c="chollo" aria-pressed="false"><img src="../img/chollo.webp" alt="">Tecnología</button><button class="chip" data-c="moda" aria-pressed="false"><img src="../img/moda.webp" alt="">Moda</button><button class="chip" data-c="pokemon" aria-pressed="false"><img src="../img/pokemon.webp" alt="">Pokémon</button><button class="chip" data-c="libro" aria-pressed="false"><img src="../img/libro.webp" alt="">Libros</button><button class="chip" data-c="coche" aria-pressed="false"><img src="../img/coche.webp" alt="">Coches</button><button class="chip" data-c="moto" aria-pressed="false"><img src="../img/moto.webp" alt="">Motos</button><button class="chip" data-c="casa" aria-pressed="false"><img src="../img/casa.webp" alt="">Casas</button><button class="chip" data-c="tren" aria-pressed="false"><img src="../img/tren.webp" alt="">Trenes</button></div>
+<div class="campos"><input id="q" type="search" placeholder="Busca: iPhone, Dunk, Golf, Madrid…" aria-label="Buscar">
+<select id="sort" aria-label="Ordenar"><option value="new">Más recientes</option><option value="disc">Más descuento</option><option value="score">Mejor nota</option><option value="cheap">Más baratos</option></select>
+<select id="min" aria-label="Descuento mínimo"><option value="0">Cualquier descuento</option><option value="20">Desde -20 %</option><option value="30">Desde -30 %</option><option value="40">Desde -40 %</option></select></div>
+<p class="cuenta" id="n"></p><div class="grid" id="grid"></div><section class="servicio" id="como"><div><h2>Te lo compramos nosotros</h2>
+<p>Los buenos chollos duran minutos. Tú eliges y nosotros nos encargamos de todo lo demás.</p>
+<ol class="pasos"><li><div><b>Eliges el chollo</b><span>Pulsa «Chorízalo por mí». Verás el precio final, con todo incluido.</span></div></li>
+<li><div><b>Reservas el pago con PayPal</b><span>Solo se cobra si conseguimos comprarlo. Si ya se vendió, no pagas nada.</span></div></li>
+<li><div><b>Lo compramos con envío protegido</b><span>Hablamos con el vendedor, revisamos fotos y estado y lo enviamos a tu dirección.</span></div></li>
+<li><div><b>Te llega a casa</b><span>Si llega mal o no es lo que decía, reclamamos nosotros y te devolvemos el dinero.</span></div></li></ol></div>
+<div><h2>Lo que cobramos</h2><p>Una cantidad fija según el precio del chollo, más el envío y el pago con PayPal. Solo te lo ofrecemos si el total sale bastante más barato que su precio normal.</p>
+<table class="tarifas"><tr><td>Hasta 5 €</td><td>+1 €</td></tr><tr><td>Hasta 10 €</td><td>+2 €</td></tr><tr><td>Hasta 15 €</td><td>+3 €</td></tr><tr><td>Hasta 25 €</td><td>+4 €</td></tr><tr><td>Hasta 40 €</td><td>+5 €</td></tr><tr><td>Hasta 55 €</td><td>+6 €</td></tr><tr><td>Más de 55 €</td><td>10 %</td></tr></table><p class="nota">Si eres PRO, 1 € menos en cada compra.</p></div></section><section class="pro" id="pro"><div><h3>Hazte PRO en Telegram</h3>
+<p>Todos los chollos al momento de publicarse, con el enlace directo al anuncio, y 1 € menos en cada compra que te hagamos.
+Aquí ves una selección; los mejores se van en minutos.</p></div>
+<div class="prol"><a href="https://t.me/+SGyfoeN4nJk4YmE0" target="_blank" rel="noopener"><img src="../img/chollo.webp" alt="">Tecnología</a><a href="https://t.me/+bSo65-LRMUY4ODY0" target="_blank" rel="noopener"><img src="../img/moda.webp" alt="">Moda</a><a href="https://t.me/+3uciVOc5e304MzZk" target="_blank" rel="noopener"><img src="../img/pokemon.webp" alt="">Pokémon</a><a href="https://t.me/+IBmqwXwDGJw5ZGQ0" target="_blank" rel="noopener"><img src="../img/libro.webp" alt="">Libros</a><a href="https://t.me/+a819eraPa201NTA0" target="_blank" rel="noopener"><img src="../img/coche.webp" alt="">Coches</a><a href="https://t.me/+sPvZ1Ess3b81YzZk" target="_blank" rel="noopener"><img src="../img/casa.webp" alt="">Casas</a><a href="https://t.me/+NK2tl0lunAM1OWY0" target="_blank" rel="noopener"><img src="../img/tren.webp" alt="">Trenes</a></div></section></main><footer><div class="wrap"><h2>Cuánto vale de segunda mano</h2><div class="guias"><a href="../precio/3ds-xl.html">3Ds Xl</a><a href="../precio/adidas-samba.html">Adidas Samba</a><a href="../precio/airpods-pro.html">Airpods Pro</a><a href="../precio/apple-watch.html">Apple Watch</a><a href="../precio/carhartt-detroit.html">Carhartt Detroit</a><a href="../precio/gba-sp.html">Gba Sp</a><a href="../precio/ipad-air.html">Ipad Air</a><a href="../precio/iphone-13.html">Iphone 13</a><a href="../precio/iphone-14.html">Iphone 14</a><a href="../precio/iphone-15.html">Iphone 15</a><a href="../precio/jordan-1.html">Jordan 1</a><a href="../precio/lego-star-wars.html">Lego Star Wars</a><a href="../precio/macbook-air-m1.html">Macbook Air M1</a><a href="../precio/nb-550.html">Nb 550</a><a href="../precio/nike-dunk-low.html">Nike Dunk Low</a><a href="../precio/north-face-nuptse.html">North Face Nuptse</a><a href="../precio/patagonia-retro.html">Patagonia Retro</a><a href="../precio/ps-vita.html">Ps Vita</a><a href="../precio/ps5.html">Ps5</a><a href="../precio/ralph-lauren-jersey.html">Ralph Lauren Jersey</a><a href="../precio/salomon-xt6.html">Salomon Xt6</a><a href="../precio/samsung-s23.html">Samsung S23</a><a href="../precio/steam-deck.html">Steam Deck</a><a href="../precio/stone-island.html">Stone Island</a><a href="../precio/switch-oled.html">Switch Oled</a></div>
+<p>Chorízalo vigila anuncios públicos de Wallapop, Vinted y otras webs y los compara con el precio de anuncios parecidos.
+No tenemos relación con esas plataformas. Cuando te compramos algo, lo hacemos por encargo tuyo a un vendedor particular,
+con el pago y el envío protegidos de la plataforma. <a href="../condiciones.html">Condiciones del servicio</a>.</p>
+<p>© 2026 Chorízalo</p></div></footer><script>
+const ENVIO={"chollo": 7.5, "moda": 6.5, "pokemon": 5.5, "libro": 5.5},CN={"chollo": "Tecnología", "moda": "Moda", "pokemon": "Pokémon", "libro": "Libros", "coche": "Coches", "moto": "Motos", "casa": "Casas", "tren": "Trenes"},PRO={"pokemon": "https://t.me/+3uciVOc5e304MzZk", "tren": "https://t.me/+NK2tl0lunAM1OWY0", "libro": "https://t.me/+IBmqwXwDGJw5ZGQ0", "moda": "https://t.me/+bSo65-LRMUY4ODY0", "coche": "https://t.me/+a819eraPa201NTA0", "casa": "https://t.me/+sPvZ1Ess3b81YzZk", "chollo": "https://t.me/+SGyfoeN4nJk4YmE0"};
+const eur=n=>n==null?'':n.toLocaleString('es-ES',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:n%1?2:0})+' €';
+const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function comision(p){return p<=5?1:p<=10?2:p<=15?3:p<=25?4:p<=40?5:p<=55?6:Math.round(p*.10)}
+function desglose(d){const e=ENVIO[d.c];if(e==null||!d.p)return null;const g=comision(d.p);
+ const t=Math.ceil((d.p+e+g+0.35)/(1-0.029));return{precio:d.p,envio:e,gestion:g,paypal:+(t-d.p-e-g).toFixed(2),total:t}}
+function compensa(d){const x=desglose(d);return x&&d.r&&x.total<=d.r*0.92?x:null}
+const R="../";const LIM=240;window.PRESET="moda";
+const S={cat:new URLSearchParams(location.search).get('c')||window.PRESET||'',q:'',sort:'new',min:0};
 let ALL=[];const $=s=>document.querySelector(s);
-const eur=n=>n==null?'':n.toLocaleString('es-ES',{maximumFractionDigits:0})+' €';
-const ago=ts=>{const m=Math.round((Date.now()/1000-ts)/60);return m<60?`hace ${m} min`:m<1440?`hace ${Math.round(m/60)} h`:`hace ${Math.round(m/1440)} d`};
+const ago=ts=>{const m=Math.round((Date.now()/1000-ts)/60);return m<60?`hace ${m} min`:m<1440?`hace ${Math.round(m/60)} h`:`hace ${Math.round(m/1440)} días`};
+const TONOS=[['#ff7a45','#c2185b'],['#2e8b6f','#1b2340'],['#3d5afe','#6a2c8c'],['#f4a300','#d8402b'],['#00838f','#283593'],['#8e24aa','#d81b60'],['#43a047','#00695c'],['#5c6bc0','#26a69a']];
+const OPN={renfe:'Renfe',avlo:'Avlo',ouigo:'Ouigo',iryo:'Iryo'};
+const fdia=(d,h)=>{const x=new Date(d+'T12:00');return isNaN(x)?d+' '+h:x.toLocaleDateString('es-ES',{weekday:'short',day:'numeric',month:'short'})+', '+h};
+function foto(d){
+ if(d.c==='tren'){const h=[...(d.to+d.fr+d.dia+d.hora)].reduce((a,c)=>a*31+c.charCodeAt(0)>>>0,7);const [c1,c2]=TONOS[h%TONOS.length];
+  return `<div class="ruta" style="background:linear-gradient(${120+h%90}deg,${c1},${c2})"><b>${esc(d.fr)}</b><i>hasta</i><b>${esc(d.to)}</b></div>`}
+ return d.i?`<img loading="lazy" referrerpolicy="no-referrer" src="${esc(d.i)}" alt="" onerror="this.className='logo-c';this.src=R+'img/${d.c}.webp'">`
+  :`<img class="logo-c" src="${R}img/${d.c}.webp" alt="">`}
+function tarjeta(d){const x=compensa(d);let tag,mer,btn;
+ if(d.c==='tren'){d={...d,t:'Billete '+(OPN[(d.op||'').toLowerCase()]||d.op),s:fdia(d.dia,d.hora)}}
+ if(x){tag=`<span class="tag"><small>en tu casa</small>${eur(x.total)}</span>`;
+  mer=`<div class="mer">Precio normal <s>${eur(d.r)}</s>, te ahorras <b>${eur(Math.round(d.r-x.total))}</b></div>`;
+  btn=`<a class="btn" href="${R}comprar.html?id=${d.id}">Chorízalo por mí</a>`}
+ else{tag=d.p?`<span class="tag">${eur(d.p)}</span>`:'';
+  mer=d.r?`<div class="mer">Precio normal <s>${eur(d.r)}</s></div>`:'';
+  btn=d.u?`<a class="btn sec" href="${esc(d.u)}" target="_blank" rel="nofollow noopener">Ver anuncio</a>`
+   :`<a class="btn sec" href="${PRO[d.c]||R+'index.html#pro'}" target="_blank" rel="noopener">Ver enlace en PRO</a>`}
+ return `<article class="deal"><div class="ph">${foto(d)}${d.d?`<span class="desc">-${d.d} %</span>`:''}${tag}</div>
+ <div class="bd"><h3>${esc(d.t)}</h3><div class="sub">${esc(d.s)}</div>${mer}${btn}
+ <div class="pie"><span>${CN[d.c]||d.c}</span><span>${ago(d.ts)}</span></div></div></article>`}
 function render(){
- let L=ALL.filter(d=>(!S.cat||d.c===S.cat)&&(!S.hot||d.sc>=60)&&(!S.min||(d.d||0)>=S.min)&&(!S.q||(d.t+' '+d.s).toLowerCase().includes(S.q)));
+ let L=ALL.filter(d=>(!S.cat||d.c===S.cat)&&(!S.min||(d.d||0)>=S.min)&&(!S.q||(d.t+' '+d.s).toLowerCase().includes(S.q)));
  const k={new:(a,b)=>b.ts-a.ts,disc:(a,b)=>(b.d||0)-(a.d||0),score:(a,b)=>b.sc-a.sc,cheap:(a,b)=>(a.p||1e12)-(b.p||1e12)}[S.sort];L.sort(k);
- $('#n').textContent=L.length+' ofertas';
- $('#grid').innerHTML=L.length?L.slice(0,240).map(d=>`<a class="deal" href="${d.u}" target="_blank" rel="nofollow noopener">
-  <div class="ph" style="background-image:url('${d.i||'../img/'+d.c+'.jpg'}')">${d.d?`<span class="badge">-${d.d}%</span>`:''}<span class="sc">🥷 ${d.sc}/100</span></div>
-  <div class="bd"><h4>${d.t.replace(/</g,'&lt;')}</h4><div class="sub">${(d.s||'').replace(/</g,'&lt;')}</div>
-  <div class="pr"><b>${eur(d.p)}</b>${d.r?`<s>${eur(d.r)}</s>`:''}</div>
-  <div class="meta"><span>${window.CN[d.c]||d.c} · ${d.src}</span><span>${ago(d.ts)}</span></div></div></a>`).join(''):'<div class="empty">No hay ofertas con estos filtros todavía. Las buenas vuelan: entra en el canal de Telegram para verlas al momento.</div>';
- document.querySelectorAll('[data-c]').forEach(c=>c.classList.toggle('on',c.dataset.c===S.cat));
- $('#hot').classList.toggle('on',S.hot);
+ $('#n').textContent=L.length===1?'1 chollo':L.length+' chollos';
+ $('#grid').innerHTML=L.length?L.slice(0,LIM).map(tarjeta).join('')
+  :'<div class="vacio">Ahora mismo no hay chollos con estos filtros. Quita alguno o únete a los canales para enterarte del siguiente.</div>';
+ document.querySelectorAll('[data-c]').forEach(c=>c.setAttribute('aria-pressed',c.dataset.c===S.cat));
 }
-fetch('../data/ofertas.json?'+Date.now()).then(r=>r.json()).then(j=>{ALL=j.ofertas;render()});
-document.addEventListener('click',e=>{const c=e.target.closest('[data-c]');if(c){S.cat=c.dataset.c===S.cat?'':c.dataset.c;render()}
- if(e.target.id==='hot'){S.hot=!S.hot;render()}});
+fetch(R+'data/ofertas.json?'+Date.now()).then(r=>r.json()).then(j=>{ALL=j.ofertas;render()});
+document.addEventListener('click',e=>{const c=e.target.closest('[data-c]');if(c){S.cat=c.dataset.c===S.cat?'':c.dataset.c;render()}});
 $('#q').addEventListener('input',e=>{S.q=e.target.value.toLowerCase();render()});
 $('#sort').addEventListener('change',e=>{S.sort=e.target.value;render()});
 $('#min').addEventListener('change',e=>{S.min=+e.target.value;render()});
-</script></main><footer><div class="wrap"><h3>Guías de precio de segunda mano</h3><div class="guides"><a href="../precio/3ds-xl.html">3Ds Xl</a><a href="../precio/adidas-samba.html">Adidas Samba</a><a href="../precio/airpods-pro.html">Airpods Pro</a><a href="../precio/apple-watch.html">Apple Watch</a><a href="../precio/carhartt-detroit.html">Carhartt Detroit</a><a href="../precio/gba-sp.html">Gba Sp</a><a href="../precio/index.html">Index</a><a href="../precio/ipad-air.html">Ipad Air</a><a href="../precio/iphone-13.html">Iphone 13</a><a href="../precio/iphone-14.html">Iphone 14</a><a href="../precio/iphone-15.html">Iphone 15</a><a href="../precio/jordan-1.html">Jordan 1</a><a href="../precio/lego-star-wars.html">Lego Star Wars</a><a href="../precio/macbook-air-m1.html">Macbook Air M1</a><a href="../precio/nb-550.html">Nb 550</a><a href="../precio/nike-dunk-low.html">Nike Dunk Low</a><a href="../precio/north-face-nuptse.html">North Face Nuptse</a><a href="../precio/patagonia-retro.html">Patagonia Retro</a><a href="../precio/ps-vita.html">Ps Vita</a><a href="../precio/ps5.html">Ps5</a><a href="../precio/ralph-lauren-jersey.html">Ralph Lauren Jersey</a><a href="../precio/salomon-xt6.html">Salomon Xt6</a><a href="../precio/samsung-s23.html">Samsung S23</a><a href="../precio/steam-deck.html">Steam Deck</a><a href="../precio/stone-island.html">Stone Island</a><a href="../precio/switch-oled.html">Switch Oled</a></div>
-<p style="margin-top:22px">Choriza no vende nada: te chivamos anuncios públicos de terceros que están por debajo de su precio de mercado.
-Comprueba siempre el producto y el vendedor. Las ofertas aquí salen con retraso; en los canales PRO de Telegram, al instante.</p>
-<p>© 2026 Choriza · hecho con datos públicos</p></div></footer></body></html>
+</script></body></html>
