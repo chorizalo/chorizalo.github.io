@@ -1,0 +1,26 @@
+:root{--bg:#fbfaf7;--ink:#1d1d1b;--mut:#6b6a66;--line:#e6e3dc;--acc:#0b7a53;--hot:#c2410c;--card:#fff}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:var(--acc)}header,main,footer{max-width:980px;margin:0 auto;padding:0 16px}
+header{display:flex;justify-content:space-between;align-items:center;padding-top:18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+header a.brand{font-weight:800;text-decoration:none;color:var(--ink);font-size:1.15rem}
+nav a{margin-left:14px;font-size:.95rem}
+h1{font-size:1.7rem;line-height:1.2;margin:26px 0 8px}h2{font-size:1.25rem;margin:30px 0 10px}
+.lead{color:var(--mut);margin-top:0}
+.cta{display:block;background:#0f172a;color:#fff;border-radius:10px;padding:14px 18px;margin:20px 0;text-decoration:none}
+.cta b{color:#7dd3a8}.cta small{display:block;color:#cbd5e1;margin-top:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.card img{width:100%;height:190px;object-fit:cover;background:#eee}
+.card .b{padding:10px 12px;display:flex;flex-direction:column;gap:3px;flex:1}
+.card .t{font-weight:650;line-height:1.3}.card .m{color:var(--mut);font-size:.88rem}
+.price{font-size:1.25rem;font-weight:800}.disc{color:var(--hot);font-weight:700;margin-left:6px}
+.score{display:inline-block;font-size:.78rem;font-weight:700;border-radius:99px;padding:1px 8px;background:#e7f5ee;color:var(--acc)}
+.score.hot{background:#fdebdd;color:var(--hot)}
+.card a.go{margin-top:auto;padding-top:6px;font-weight:600}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:.95rem}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left}th{background:#f3f1ec}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+.big{font-size:2.2rem;font-weight:800;margin:4px 0}
+.note{font-size:.88rem;color:var(--mut)}
+ul.links{columns:2;padding-left:18px}
+footer{margin-top:40px;padding:18px 16px 40px;border-top:1px solid var(--line);color:var(--mut);font-size:.85rem}
