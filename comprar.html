@@ -79,6 +79,7 @@ padding:9px 13px 8px;border-radius:8px;transform:rotate(-3deg);box-shadow:0 3px 
 .bd .sub{color:var(--gris);font-size:.88rem}
 .bd .mer{font-size:.9rem}.bd .mer s{color:var(--gris)}.bd .mer b{color:var(--verde)}
 .bd .btn{margin-top:auto;width:100%;padding:11px 14px}
+.extras{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.84rem;align-items:center}.extras a{color:var(--tinta)}.extras span{color:var(--gris);font-size:.72rem;margin-left:auto}
 .bd .pie{display:flex;justify-content:space-between;color:var(--gris);font-size:.8rem;margin-top:4px}
 .vacio{grid-column:1/-1;padding:40px 20px;text-align:center;background:var(--sup);border-radius:16px}
 /* trenes: cartel de ruta en vez de foto */
@@ -157,7 +158,14 @@ Los anuncios son de terceros y no tenemos relación con Wallapop, Vinted ni otra
 <div><b>Pago seguro</b><p><img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-color.svg" alt="PayPal" width="84" height="23" style="background:#fff;border-radius:6px;padding:4px 6px;vertical-align:middle">
 <a href="condiciones.html">Condiciones</a> · <a href="privacidad.html">Privacidad</a></p></div></div>
 <p>© 2026 Chorízalo</p></div></footer><script>
-const ENVIO={"chollo": 7.5, "moda": 6.5, "pokemon": 5.5, "libro": 5.5},CN={"chollo": "Tecnología", "moda": "Moda", "pokemon": "Pokémon", "libro": "Libros", "coche": "Coches", "moto": "Motos", "casa": "Casas", "tren": "Trenes"},PRO={"pokemon": "https://t.me/+3uciVOc5e304MzZk", "tren": "https://t.me/+NK2tl0lunAM1OWY0", "libro": "https://t.me/+IBmqwXwDGJw5ZGQ0", "moda": "https://t.me/+bSo65-LRMUY4ODY0", "coche": "https://t.me/+a819eraPa201NTA0", "casa": "https://t.me/+sPvZ1Ess3b81YzZk", "chollo": "https://t.me/+SGyfoeN4nJk4YmE0"};
+const ENVIO={"chollo": 7.5, "moda": 6.5, "pokemon": 5.5, "libro": 5.5},CN={"chollo": "Tecnología", "moda": "Moda", "pokemon": "Pokémon", "libro": "Libros", "coche": "Coches", "moto": "Motos", "casa": "Casas", "tren": "Trenes"},PRO={"pokemon": "https://t.me/+3uciVOc5e304MzZk", "tren": "https://t.me/+NK2tl0lunAM1OWY0", "libro": "https://t.me/+IBmqwXwDGJw5ZGQ0", "moda": "https://t.me/+bSo65-LRMUY4ODY0", "coche": "https://t.me/+a819eraPa201NTA0", "casa": "https://t.me/+sPvZ1Ess3b81YzZk", "moto": "https://t.me/+UtK4Xr1b4KkyYWJk", "chollo": "https://t.me/+SGyfoeN4nJk4YmE0"},AFI={};
+const afi=(k,q)=>AFI[k]?AFI[k].replace('{q}',encodeURIComponent(q||'')):'';
+function extras(d){const L=[];
+ if((d.c==='coche'||d.c==='moto')&&AFI.carvertical)L.push(`<a href="${afi('carvertical')}" target="_blank" rel="sponsored noopener">Comprueba su historial</a>`);
+ if((d.c==='coche'||d.c==='moto')&&AFI.seguro)L.push(`<a href="${afi('seguro')}" target="_blank" rel="sponsored noopener">¿Cuánto cuesta asegurarlo?</a>`);
+ if(d.c==='chollo'&&AFI.backmarket)L.push(`<a href="${afi('backmarket',d.s||d.t)}" target="_blank" rel="sponsored noopener">Compáralo reacondicionado</a>`);
+ if(d.c==='chollo'&&AFI.pccomponentes)L.push(`<a href="${afi('pccomponentes',d.s||d.t)}" target="_blank" rel="sponsored noopener">Precio nuevo</a>`);
+ return L.length?`<div class="extras">${L.join('')}<span>Publicidad</span></div>`:''}
 const eur=n=>n==null?'':n.toLocaleString('es-ES',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:n%1?2:0})+' €';
 const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function comision(p){return p<=5?1:p<=10?2:p<=15?3:p<=25?4:p<=40?5:p<=55?6:Math.round(p*.10)}
