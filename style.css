@@ -26,4 +26,5 @@ td.n{text-align:right;font-variant-numeric:tabular-nums}
 .note{font-size:.9rem;color:var(--gris)}
 ul.links{columns:2;padding-left:18px}ul.links a{color:var(--noche)}
 footer{margin-top:56px;padding-block:24px 44px;border-top:1px solid var(--linea);color:var(--gris);font-size:.88rem}
+@media (prefers-color-scheme:dark){:root{--linea:#2c355a;--gris:#a8afc8;--niebla:#1d2442}body,.card{background:#121830;color:#f2f3f8}header a.brand,nav a,.card .m a,ul.links a{color:#f2f3f8}.price{color:#1b2340}.score{color:#f2f3f8}}
 @media (max-width:600px){ul.links{columns:1}nav a{margin-left:0;margin-right:14px}}
