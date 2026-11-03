@@ -191,7 +191,7 @@ function compensa(d){const x=desglose(d);return x&&d.r&&x.total<=d.r*0.92?x:null
 function consigue(d){return d.c!=='tren'?desglose(d):null}
 const R="";const LIM=240;window.PRESET="";
 const S={cat:new URLSearchParams(location.search).get('c')||window.PRESET||'',k:new URLSearchParams(location.search).get('k')||'',q:'',sort:'new',min:0};
-const SUBN={"chollo": {"consolas": "Consolas", "moviles": "Móviles", "relojes": "Relojes", "lego": "LEGO", "portatiles": "Portátiles y tablets", "audio": "Auriculares y altavoces"}, "moda": {"zapatillas": "Zapatillas y calzado", "ropa": "Ropa"}, "pokemon": {"etb": "Cajas Entrenador Élite", "bundle": "Booster bundle", "display": "Cajas de sobres", "upc": "Colecciones premium"}, "libro": {"ingles": "Inglés", "novela": "Novelas y sagas", "comics": "Cómics y tebeos", "manga": "Manga", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "gasolina": "Gasolina", "hibrido": "Híbridos", "electrico": "Eléctricos", "otros": "Otros"}, "moto": {"otros": "Otros", "gasolina": "Gasolina", "electrico": "Eléctricos"}, "casa": {"venta": "Venta", "alquiler": "Alquiler"}, "tren": {"renfe": "Renfe", "ouigo": "Ouigo"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const SUBN={"chollo": {"consolas": "Consolas", "moviles": "Móviles", "relojes": "Relojes", "lego": "LEGO", "portatiles": "Portátiles y tablets", "audio": "Auriculares y altavoces"}, "moda": {"ropa": "Ropa", "zapatillas": "Zapatillas y calzado"}, "pokemon": {"etb": "Cajas Entrenador Élite", "bundle": "Booster bundle", "display": "Cajas de sobres", "upc": "Colecciones premium"}, "libro": {"ingles": "Inglés", "novela": "Novelas y sagas", "comics": "Cómics y tebeos", "manga": "Manga", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "gasolina": "Gasolina", "hibrido": "Híbridos", "electrico": "Eléctricos", "otros": "Otros"}, "moto": {"otros": "Otros", "gasolina": "Gasolina", "electrico": "Eléctricos"}, "casa": {"venta": "Venta", "alquiler": "Alquiler"}, "tren": {"avlo": "Avlo", "ouigo": "Ouigo", "ave": "AVE", "alvia": "Alvia"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 function subs(){const el=document.getElementById('subs');if(!el)return;const N=SUBN[S.cat];
  if(!S.cat||!N||Object.keys(N).length<2){el.hidden=true;el.innerHTML='';return}
  const cnt={};ALL.forEach(d=>{if(d.c===S.cat)cnt[d.k]=(cnt[d.k]||0)+1});
@@ -208,7 +208,7 @@ function foto(d){
  return d.i?`<img loading="lazy" referrerpolicy="no-referrer" src="${esc(d.i)}" alt="" onerror="this.className='logo-c';this.src=R+'img/${d.c}.webp'">`
   :`<img class="logo-c" src="${R}img/${d.c}.webp" alt="">`}
 function tarjeta(d){const x=consigue(d);let tag,mer,btn;
- if(d.c==='tren'){d={...d,t:'Billete '+(OPN[(d.op||'').toLowerCase()]||d.op),s:fdia(d.dia,d.hora)}}
+ if(d.c==='tren'){d={...d,t:'Billete '+(OPN[(d.op||'').toLowerCase()]||d.op)+(d.pr&&d.pr.toUpperCase()!==(d.op||'').toUpperCase()?' · '+d.pr.charAt(0)+d.pr.slice(1).toLowerCase():''),s:fdia(d.dia,d.hora)+(d.tm?' · '+d.tm:'')}}
  if(x){tag=`<span class="tag"><small>en tu casa</small>${eur(x.total)}</span>`;
   mer=d.r&&x.total<d.r?`<div class="mer">Precio normal <s>${eur(d.r)}</s>, te ahorras <b>${eur(Math.round(d.r-x.total))}</b></div>`:(d.r?`<div class="mer">Precio normal ${eur(d.r)}</div>`:'');
   btn=`<a class="btn" href="${R}comprar.html?id=${d.id}">Consíguemelo</a>`}
