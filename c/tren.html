@@ -132,6 +132,7 @@ background:var(--cartel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org
 .humano{display:flex;gap:14px;align-items:center;margin-top:20px;padding:14px 16px;border-radius:14px;box-shadow:inset 0 0 0 2px var(--linea)}
 .humano img{flex:none}.humano p{margin:0;font-size:.95rem}
 .faq{margin-top:56px}.faql{display:grid;gap:8px;max-width:820px}
+.bar.subs{margin-top:-4px}.bar.subs .chip{font-size:.9rem;padding:6px 12px;background:var(--sup)}.bar.subs .chip small{opacity:.65;margin-left:2px}.bar.subs .chip[aria-pressed=true]{background:var(--cartel);color:#1b2340}
 .faq details{border-radius:12px;background:var(--sup);padding:0 16px}.faq summary{cursor:pointer;font-weight:700;padding:14px 0 14px 22px;list-style:none;position:relative}.faq summary::-webkit-details-marker{display:none}.faq summary::before{content:'▸';position:absolute;left:0;color:var(--cartel)}.faq details[open] summary::before{content:'▾'}
 .faq details p{margin:0 0 14px;color:var(--gris);overflow-wrap:anywhere}
 .cubre{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px;max-width:820px}
@@ -158,6 +159,7 @@ y tratas directamente con el vendedor o la compañía. No compramos, no cobramos
 <div class="campos"><input id="q" type="search" placeholder="Busca: iPhone, Dunk, Golf, Madrid…" aria-label="Buscar">
 <select id="sort" aria-label="Ordenar"><option value="new">Más recientes</option><option value="disc">Más descuento</option><option value="score">Mejor nota</option><option value="cheap">Más baratos</option></select>
 <select id="min" aria-label="Descuento mínimo"><option value="0">Cualquier descuento</option><option value="20">Desde -20 %</option><option value="30">Desde -30 %</option><option value="40">Desde -40 %</option></select></div>
+<div class="bar subs" id="subs" hidden></div>
 <p class="cuenta" id="n"></p><div class="grid" id="grid"></div><section class="pro" id="pro"><div><h3>Subastas del BOE en PRO</h3>
 <p>Los chollos son gratis y al momento en nuestros canales de Telegram. En el PRO te avisamos de las subastas del BOE de casas y de coches en cuanto se publican.</p></div>
 <div class="prol"><a href="https://t.me/RadarChollosPhantom_bot?start=coche-pro" target="_blank" rel="noopener"><img src="../img/coche.webp" alt="">Coches</a><a href="https://t.me/RadarChollosPhantom_bot?start=casa-pro" target="_blank" rel="noopener"><img src="../img/casa.webp" alt="">Casas</a></div></section></main><footer><div class="wrap"><h2>Cuánto vale de segunda mano</h2><div class="guias"><a href="../precio/3ds-xl.html">3Ds Xl</a><a href="../precio/adidas-gazelle.html">Adidas Gazelle</a><a href="../precio/adidas-samba.html">Adidas Samba</a><a href="../precio/airpods-2.html">Airpods 2</a><a href="../precio/airpods-3.html">Airpods 3</a><a href="../precio/airpods-max.html">Airpods Max</a><a href="../precio/airpods-pro.html">Airpods Pro</a><a href="../precio/apple-watch.html">Apple Watch</a><a href="../precio/barbour.html">Barbour</a><a href="../precio/birkenstock-boston.html">Birkenstock Boston</a><a href="../precio/brompton.html">Brompton</a><a href="../precio/canada-goose.html">Canada Goose</a><a href="../precio/canon-eos.html">Canon Eos</a><a href="../precio/carhartt-detroit.html">Carhartt Detroit</a><a href="../precio/converse-chuck-70.html">Converse Chuck 70</a><a href="../precio/dji-mini.html">Dji Mini</a><a href="../precio/dr-martens-1460.html">Dr Martens 1460</a><a href="../precio/dyson-v10.html">Dyson V10</a><a href="../precio/garmin-forerunner.html">Garmin Forerunner</a><a href="../precio/gba-sp.html">Gba Sp</a><a href="../precio/gopro-hero.html">Gopro Hero</a><a href="../precio/ipad-10.html">Ipad 10</a><a href="../precio/ipad-9.html">Ipad 9</a><a href="../precio/ipad-air.html">Ipad Air</a><a href="../precio/ipad-pro.html">Ipad Pro</a><a href="../precio/iphone-11.html">Iphone 11</a><a href="../precio/iphone-12.html">Iphone 12</a><a href="../precio/iphone-13.html">Iphone 13</a><a href="../precio/iphone-14.html">Iphone 14</a><a href="../precio/iphone-15.html">Iphone 15</a><a href="../precio/iphone-16.html">Iphone 16</a><a href="../precio/jbl-flip.html">Jbl Flip</a><a href="../precio/jordan-1.html">Jordan 1</a><a href="../precio/kindle-paperwhite.html">Kindle Paperwhite</a><a href="../precio/lego-star-wars.html">Lego Star Wars</a><a href="../precio/lego-technic.html">Lego Technic</a><a href="../precio/levis-501.html">Levis 501</a><a href="../precio/macbook-air-m1.html">Macbook Air M1</a><a href="../precio/macbook-pro-m1.html">Macbook Pro M1</a><a href="../precio/meta-quest-2.html">Meta Quest 2</a></div>
@@ -184,7 +186,13 @@ function desglose(d){const e=ENVIO[d.c];if(e==null||!d.p)return null;const g=com
 function compensa(d){const x=desglose(d);return x&&d.r&&x.total<=d.r*0.92?x:null}
 function consigue(d){return d.c!=='tren'?desglose(d):null}
 const R="../";const LIM=240;window.PRESET="tren";
-const S={cat:new URLSearchParams(location.search).get('c')||window.PRESET||'',q:'',sort:'new',min:0};
+const S={cat:new URLSearchParams(location.search).get('c')||window.PRESET||'',k:new URLSearchParams(location.search).get('k')||'',q:'',sort:'new',min:0};
+const SUBN={"chollo": {"consolas": "Consolas", "moviles": "Móviles", "relojes": "Relojes", "lego": "LEGO", "portatiles": "Portátiles y tablets", "audio": "Auriculares y altavoces"}, "moda": {"zapatillas": "Zapatillas y calzado", "ropa": "Ropa"}, "pokemon": {"etb": "Cajas Entrenador Élite", "bundle": "Booster bundle", "display": "Cajas de sobres", "upc": "Colecciones premium"}, "libro": {"ingles": "Inglés", "novela": "Novelas y sagas", "comics": "Cómics y tebeos", "manga": "Manga", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "gasolina": "Gasolina", "hibrido": "Híbridos", "electrico": "Eléctricos", "otros": "Otros"}, "moto": {"otros": "Otros", "gasolina": "Gasolina", "electrico": "Eléctricos"}, "casa": {"venta": "Venta", "alquiler": "Alquiler"}, "tren": {"renfe": "Renfe", "ouigo": "Ouigo"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+function subs(){const el=document.getElementById('subs');if(!el)return;const N=SUBN[S.cat];
+ if(!S.cat||!N||Object.keys(N).length<2){el.hidden=true;el.innerHTML='';return}
+ const cnt={};ALL.forEach(d=>{if(d.c===S.cat)cnt[d.k]=(cnt[d.k]||0)+1});
+ const ks=Object.keys(N).filter(k=>cnt[k]).sort((a,b)=>a==='otros'?1:b==='otros'?-1:cnt[b]-cnt[a]);
+ el.hidden=ks.length<2;el.innerHTML=`<button class="chip" data-k="" aria-pressed="${!S.k}">Todo</button>`+ks.map(k=>`<button class="chip" data-k="${k}" aria-pressed="${S.k===k}">${esc(N[k])} <small>${cnt[k]}</small></button>`).join('')}
 let ALL=[];const $=s=>document.querySelector(s);
 const ago=ts=>{const m=Math.round((Date.now()/1000-ts)/60);return m<60?`hace ${m} min`:m<1440?`hace ${Math.round(m/60)} h`:`hace ${Math.round(m/1440)} días`};
 const TONOS=[['#ff7a45','#c2185b'],['#2e8b6f','#1b2340'],['#3d5afe','#6a2c8c'],['#f4a300','#d8402b'],['#00838f','#283593'],['#8e24aa','#d81b60'],['#43a047','#00695c'],['#5c6bc0','#26a69a']];
@@ -214,17 +222,18 @@ function destacado(){const el=$('#destacado');if(!el)return;const ahora=Date.now
  const L=ALL.filter(d=>d.i&&ahora-d.ts<172800).map(d=>({d,v:(compensa(d)?40:0)+d.sc+(d.d||0)/2}));L.sort((a,b)=>b.v-a.v);
  const d=(L[0]||{}).d||ALL.find(d=>d.i);if(!d)return;GR=true;el.innerHTML=tarjeta(d);GR=false}
 function render(){
- let L=ALL.filter(d=>(!window.SOLOC||compensa(d))&&(!S.cat||d.c===S.cat)&&(!S.min||(d.d||0)>=S.min)&&(!S.q||(d.t+' '+d.s).toLowerCase().includes(S.q)));
+ let L=ALL.filter(d=>(!window.SOLOC||compensa(d))&&(!S.cat||d.c===S.cat)&&(!S.k||d.k===S.k)&&(!S.min||(d.d||0)>=S.min)&&(!S.q||sinac(d.t+' '+d.s+' '+((SUBN[d.c]||{})[d.k]||'')+' '+(CN[d.c]||'')).includes(S.q)));
  const k={new:(a,b)=>b.ts-a.ts,disc:(a,b)=>(b.d||0)-(a.d||0),score:(a,b)=>b.sc-a.sc,cheap:(a,b)=>(a.p||1e12)-(b.p||1e12)}[S.sort];L.sort(k);
  $('#n').textContent=L.length===1?'1 chollo':L.length+' chollos';
  $('#grid').innerHTML=L.length?L.slice(0,LIM).map(tarjeta).join('')
   :'<div class="vacio">Ahora mismo no hay chollos con estos filtros. Quita alguno o únete a los canales para enterarte del siguiente.</div>';
- document.querySelectorAll('[data-c]').forEach(c=>c.setAttribute('aria-pressed',c.dataset.c===S.cat));
+ document.querySelectorAll('[data-c]').forEach(c=>c.setAttribute('aria-pressed',c.dataset.c===S.cat));subs();
 }
 $('#grid').innerHTML='<div class="deal hueco"></div>'.repeat(Math.min(LIM,8));
 fetch(R+'data/ofertas.json?'+Date.now()).then(r=>r.json()).then(j=>{ALL=j.ofertas;destacado();render()});
-document.addEventListener('click',e=>{const c=e.target.closest('[data-c]');if(c){S.cat=c.dataset.c===S.cat?'':c.dataset.c;render()}});
-$('#q').addEventListener('input',e=>{S.q=e.target.value.toLowerCase();render()});
+document.addEventListener('click',e=>{const c=e.target.closest('[data-c]');if(c){S.cat=c.dataset.c===S.cat?'':c.dataset.c;S.k='';render();return}
+ const k=e.target.closest('[data-k]');if(k){S.k=k.dataset.k===S.k?'':k.dataset.k;render()}});
+$('#q').addEventListener('input',e=>{S.q=sinac(e.target.value).trim();render()});
 $('#sort').addEventListener('change',e=>{S.sort=e.target.value;render()});
 $('#min').addEventListener('change',e=>{S.min=+e.target.value;render()});
 </script></body></html>
