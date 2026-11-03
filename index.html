@@ -167,12 +167,12 @@ footer a{color:var(--tinta)}
 <a class="bfband" href="loteria-navidad.html" style="background:#1f7a3a;color:#fff"><b>¿Me ha tocado la Lotería?</b><span>Comprueba tu décimo de Navidad y lo que te queda después de Hacienda</span></a>
 <div class="cats"><a class="cat" href="c/chollo.html"><img src="img/chollo.webp" alt=""><b>Tecnología</b>
 <span>225 chollos</span></a><a class="cat" href="c/moda.html"><img src="img/moda.webp" alt=""><b>Moda</b>
-<span>424 chollos</span></a><a class="cat" href="c/pokemon.html"><img src="img/pokemon.webp" alt=""><b>Pokémon</b>
+<span>427 chollos</span></a><a class="cat" href="c/pokemon.html"><img src="img/pokemon.webp" alt=""><b>Pokémon</b>
 <span>35 chollos</span></a><a class="cat" href="c/libro.html"><img src="img/libro.webp" alt=""><b>Libros</b>
 <span>43 chollos</span></a><a class="cat" href="c/coche.html"><img src="img/coche.webp" alt=""><b>Coches</b>
-<span>337 chollos</span></a><a class="cat" href="c/moto.html"><img src="img/moto.webp" alt=""><b>Motos</b>
-<span>25 chollos</span></a><a class="cat" href="c/casa.html"><img src="img/casa.webp" alt=""><b>Casas</b>
-<span>61 chollos</span></a><a class="cat" href="c/tren.html"><img src="img/tren.webp" alt=""><b>Trenes</b>
+<span>342 chollos</span></a><a class="cat" href="c/moto.html"><img src="img/moto.webp" alt=""><b>Motos</b>
+<span>26 chollos</span></a><a class="cat" href="c/casa.html"><img src="img/casa.webp" alt=""><b>Casas</b>
+<span>62 chollos</span></a><a class="cat" href="c/tren.html"><img src="img/tren.webp" alt=""><b>Trenes</b>
 <span>101 chollos</span></a></div>
 <h2>Recién cazados</h2><div class="bar"><button class="chip" data-c="chollo" aria-pressed="false"><img src="img/chollo.webp" alt="">Tecnología</button><button class="chip" data-c="moda" aria-pressed="false"><img src="img/moda.webp" alt="">Moda</button><button class="chip" data-c="pokemon" aria-pressed="false"><img src="img/pokemon.webp" alt="">Pokémon</button><button class="chip" data-c="libro" aria-pressed="false"><img src="img/libro.webp" alt="">Libros</button><button class="chip" data-c="coche" aria-pressed="false"><img src="img/coche.webp" alt="">Coches</button><button class="chip" data-c="moto" aria-pressed="false"><img src="img/moto.webp" alt="">Motos</button><button class="chip" data-c="casa" aria-pressed="false"><img src="img/casa.webp" alt="">Casas</button><button class="chip" data-c="tren" aria-pressed="false"><img src="img/tren.webp" alt="">Trenes</button></div>
 <div class="campos"><input id="q" type="search" placeholder="Busca: iPhone, Dunk, Golf, Madrid…" aria-label="Buscar">
@@ -220,7 +220,7 @@ function compensa(d){const x=desglose(d);return x&&d.r&&x.total<=d.r*0.92?x:null
 function consigue(d){return d.c!=='tren'?desglose(d):null}
 const R="";const LIM=12;window.PRESET="";
 const S={cat:new URLSearchParams(location.search).get('c')||window.PRESET||'',k:new URLSearchParams(location.search).get('k')||'',q:'',sort:'new',min:0};
-const SUBN={"chollo": {"consolas": "Consolas", "moviles": "Móviles", "relojes": "Relojes", "lego": "LEGO", "portatiles": "Portátiles y tablets", "audio": "Auriculares y altavoces"}, "moda": {"ropa": "Ropa", "zapatillas": "Zapatillas y calzado"}, "pokemon": {"etb": "Cajas Entrenador Élite", "bundle": "Booster bundle", "display": "Cajas de sobres", "upc": "Colecciones premium"}, "libro": {"ingles": "Inglés", "novela": "Novelas y sagas", "comics": "Cómics y tebeos", "manga": "Manga", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "gasolina": "Gasolina", "hibrido": "Híbridos", "electrico": "Eléctricos", "otros": "Otros"}, "moto": {"otros": "Otros", "gasolina": "Gasolina", "electrico": "Eléctricos"}, "casa": {"venta": "Venta", "alquiler": "Alquiler"}, "tren": {"avlo": "Avlo", "ouigo": "Ouigo", "ave": "AVE", "alvia": "Alvia"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const SUBN={"chollo": {"consolas": "Consolas", "moviles": "Móviles", "relojes": "Relojes", "lego": "LEGO", "portatiles": "Portátiles y tablets", "audio": "Auriculares y altavoces"}, "moda": {"ropa": "Ropa", "zapatillas": "Zapatillas y calzado"}, "pokemon": {"etb": "Cajas Entrenador Élite", "bundle": "Booster bundle", "display": "Cajas de sobres", "upc": "Colecciones premium"}, "libro": {"ingles": "Inglés", "novela": "Novelas y sagas", "comics": "Cómics y tebeos", "manga": "Manga", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "gasolina": "Gasolina", "electrico": "Eléctricos", "hibrido": "Híbridos", "otros": "Otros"}, "moto": {"gasolina": "Gasolina", "otros": "Otros", "electrico": "Eléctricos"}, "casa": {"venta": "Venta", "alquiler": "Alquiler"}, "tren": {"avlo": "Avlo", "ouigo": "Ouigo", "ave": "AVE", "alvia": "Alvia"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 function subs(){const el=document.getElementById('subs');if(!el)return;const N=SUBN[S.cat];
  if(!S.cat||!N||Object.keys(N).length<2){el.hidden=true;el.innerHTML='';return}
  const cnt={};ALL.forEach(d=>{if(d.c===S.cat)cnt[d.k]=(cnt[d.k]||0)+1});
