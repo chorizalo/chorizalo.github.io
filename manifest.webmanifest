@@ -1,4 +1,5 @@
 {
+ "id": "/",
  "name": "Chorízalo · chollos de segunda mano",
  "short_name": "Chorízalo",
  "description": "Chollos de segunda mano por debajo de su precio normal, y te los compramos con envío protegido.",
@@ -31,6 +32,38 @@
    "sizes": "512x512",
    "type": "image/png",
    "purpose": "maskable"
+  }
+ ],
+ "dir": "ltr",
+ "prefer_related_applications": false,
+ "screenshots": [
+  {
+   "src": "/img/captura-1.png",
+   "sizes": "1366x768",
+   "type": "image/png",
+   "form_factor": "wide",
+   "label": "Portada de Chorízalo"
+  },
+  {
+   "src": "/img/captura-2.png",
+   "sizes": "1366x768",
+   "type": "image/png",
+   "form_factor": "wide",
+   "label": "Todos los chollos"
+  },
+  {
+   "src": "/img/captura-3.png",
+   "sizes": "1366x768",
+   "type": "image/png",
+   "form_factor": "wide",
+   "label": "Black Friday: precio real de segunda mano"
+  },
+  {
+   "src": "/img/captura-4.png",
+   "sizes": "1366x768",
+   "type": "image/png",
+   "form_factor": "wide",
+   "label": "Regalos de segunda mano"
   }
  ],
  "shortcuts": [
