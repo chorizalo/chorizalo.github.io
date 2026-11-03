@@ -212,7 +212,7 @@ function destacado(){const el=$('#destacado');if(!el)return;const ahora=Date.now
  const L=ALL.filter(d=>d.i&&ahora-d.ts<172800).map(d=>({d,v:(compensa(d)?40:0)+d.sc+(d.d||0)/2}));L.sort((a,b)=>b.v-a.v);
  const d=(L[0]||{}).d||ALL.find(d=>d.i);if(!d)return;GR=true;el.innerHTML=tarjeta(d);GR=false}
 function render(){
- let L=ALL.filter(d=>(!S.cat||d.c===S.cat)&&(!S.min||(d.d||0)>=S.min)&&(!S.q||(d.t+' '+d.s).toLowerCase().includes(S.q)));
+ let L=ALL.filter(d=>(!window.SOLOC||compensa(d))&&(!S.cat||d.c===S.cat)&&(!S.min||(d.d||0)>=S.min)&&(!S.q||(d.t+' '+d.s).toLowerCase().includes(S.q)));
  const k={new:(a,b)=>b.ts-a.ts,disc:(a,b)=>(b.d||0)-(a.d||0),score:(a,b)=>b.sc-a.sc,cheap:(a,b)=>(a.p||1e12)-(b.p||1e12)}[S.sort];L.sort(k);
  $('#n').textContent=L.length===1?'1 chollo':L.length+' chollos';
  $('#grid').innerHTML=L.length?L.slice(0,LIM).map(tarjeta).join('')
