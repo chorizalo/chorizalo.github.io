@@ -166,11 +166,11 @@ footer a{color:var(--tinta)}
 <a class="bfband" href="regalos.html" style="background:var(--pimenton);color:#fff"><b>Regalos de Navidad</b><span>Lo que más se regala, de segunda mano y revisado, hasta un 40 % más barato</span></a>
 <a class="bfband" href="loteria-navidad.html" style="background:#1f7a3a;color:#fff"><b>¿Me ha tocado la Lotería?</b><span>Comprueba tu décimo de Navidad y lo que te queda después de Hacienda</span></a>
 <div class="cats"><a class="cat" href="c/chollo.html"><img src="img/chollo.webp" alt=""><b>Tecnología</b>
-<span>243 chollos</span></a><a class="cat" href="c/moda.html"><img src="img/moda.webp" alt=""><b>Moda</b>
-<span>462 chollos</span></a><a class="cat" href="c/pokemon.html"><img src="img/pokemon.webp" alt=""><b>Pokémon</b>
+<span>248 chollos</span></a><a class="cat" href="c/moda.html"><img src="img/moda.webp" alt=""><b>Moda</b>
+<span>465 chollos</span></a><a class="cat" href="c/pokemon.html"><img src="img/pokemon.webp" alt=""><b>Pokémon</b>
 <span>40 chollos</span></a><a class="cat" href="c/libro.html"><img src="img/libro.webp" alt=""><b>Libros</b>
-<span>45 chollos</span></a><a class="cat" href="c/coche.html"><img src="img/coche.webp" alt=""><b>Coches</b>
-<span>371 chollos</span></a><a class="cat" href="c/moto.html"><img src="img/moto.webp" alt=""><b>Motos</b>
+<span>46 chollos</span></a><a class="cat" href="c/coche.html"><img src="img/coche.webp" alt=""><b>Coches</b>
+<span>376 chollos</span></a><a class="cat" href="c/moto.html"><img src="img/moto.webp" alt=""><b>Motos</b>
 <span>27 chollos</span></a><a class="cat" href="c/casa.html"><img src="img/casa.webp" alt=""><b>Casas</b>
 <span>68 chollos</span></a><a class="cat" href="c/tren.html"><img src="img/tren.webp" alt=""><b>Trenes</b>
 <span>101 chollos</span></a></div>
@@ -220,7 +220,7 @@ function compensa(d){const x=desglose(d);return x&&d.r&&x.total<=d.r*0.92?x:null
 function consigue(d){return d.c!=='tren'?desglose(d):null}
 const R="";const LIM=12;window.PRESET="";
 const S={cat:new URLSearchParams(location.search).get('c')||window.PRESET||'',k:new URLSearchParams(location.search).get('k')||'',q:'',sort:'new',min:0};
-const SUBN={"chollo": {"consolas": "Consolas", "relojes": "Relojes", "moviles": "Móviles", "lego": "LEGO", "portatiles": "Portátiles y tablets", "audio": "Auriculares y altavoces"}, "moda": {"zapatillas": "Zapatillas y calzado", "ropa": "Ropa"}, "pokemon": {"upc": "Colecciones premium", "etb": "Cajas Entrenador Élite", "display": "Cajas de sobres", "bundle": "Booster bundle"}, "libro": {"manga": "Manga", "ingles": "Inglés", "novela": "Novelas y sagas", "comics": "Cómics y tebeos", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "gasolina": "Gasolina", "otros": "Otros", "electrico": "Eléctricos", "hibrido": "Híbridos"}, "moto": {"otros": "Otros", "gasolina": "Gasolina", "electrico": "Eléctricos"}, "casa": {"alquiler": "Alquiler", "venta": "Venta"}, "tren": {"avlo": "Avlo", "ouigo": "Ouigo", "ave": "AVE", "alvia": "Alvia"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const SUBN={"chollo": {"moviles": "Móviles", "consolas": "Consolas", "relojes": "Relojes", "lego": "LEGO", "portatiles": "Portátiles y tablets", "audio": "Auriculares y altavoces"}, "moda": {"zapatillas": "Zapatillas y calzado", "ropa": "Ropa"}, "pokemon": {"upc": "Colecciones premium", "etb": "Cajas Entrenador Élite", "display": "Cajas de sobres", "bundle": "Booster bundle"}, "libro": {"ingles": "Inglés", "manga": "Manga", "novela": "Novelas y sagas", "comics": "Cómics y tebeos", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "gasolina": "Gasolina", "otros": "Otros", "electrico": "Eléctricos", "hibrido": "Híbridos"}, "moto": {"otros": "Otros", "gasolina": "Gasolina", "electrico": "Eléctricos"}, "casa": {"alquiler": "Alquiler", "venta": "Venta"}, "tren": {"avlo": "Avlo", "ouigo": "Ouigo", "ave": "AVE", "alvia": "Alvia"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 function subs(){const el=document.getElementById('subs');if(!el)return;const N=SUBN[S.cat];
  if(!S.cat||!N||Object.keys(N).length<2){el.hidden=true;el.innerHTML='';return}
  const cnt={};ALL.forEach(d=>{if(d.c===S.cat)cnt[d.k]=(cnt[d.k]||0)+1});
