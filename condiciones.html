@@ -124,6 +124,15 @@ background:var(--cartel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org
 .compra h1{font-family:var(--disp);font-weight:400;font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.05;margin:0 0 8px}
 .desglose{width:100%;border-collapse:collapse;margin:18px 0}
 .desglose td{padding:10px 0;border-bottom:1px solid var(--linea)}.desglose td+td{text-align:right;font-variant-numeric:tabular-nums}
+label.interruptor{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+label.interruptor input{position:absolute;opacity:0;width:1px;height:1px}
+label.interruptor .pista{flex:none;width:44px;height:26px;border-radius:99px;background:var(--linea);position:relative;transition:background .2s}
+label.interruptor .pista::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}
+label.interruptor input:checked+.pista{background:var(--verde)}label.interruptor input:checked+.pista::after{transform:translateX(18px)}
+label.interruptor input:focus-visible+.pista{outline:3px solid var(--pimenton);outline-offset:2px}
+.vendedor{margin:14px 0 6px;padding:14px 16px;border-radius:14px;background:var(--sup)}.vendedor p{margin:6px 0 0;white-space:pre-line;overflow-wrap:anywhere;font-size:.95rem}
+.detalles{color:var(--gris);margin:4px 0 0}.nota-precio{font-size:.93rem;color:var(--gris);margin:-6px 0 14px}
+.desglose td+td{white-space:nowrap}
 .desglose tr.total td{border:0;font-family:var(--disp);font-size:1.5rem;padding-top:16px}
 .aviso{background:var(--sup);border-radius:14px;padding:14px 16px;font-size:.95rem}
 #pp{margin-top:18px;max-width:420px;background:#fff;border-radius:14px;padding:14px 14px 4px;box-shadow:0 1px 0 rgba(0,0,0,.06),0 0 0 1px var(--linea)}#pp .aviso{margin:0 0 10px;color:#1b2340}

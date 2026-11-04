@@ -124,6 +124,15 @@ background:var(--cartel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org
 .compra h1{font-family:var(--disp);font-weight:400;font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.05;margin:0 0 8px}
 .desglose{width:100%;border-collapse:collapse;margin:18px 0}
 .desglose td{padding:10px 0;border-bottom:1px solid var(--linea)}.desglose td+td{text-align:right;font-variant-numeric:tabular-nums}
+label.interruptor{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+label.interruptor input{position:absolute;opacity:0;width:1px;height:1px}
+label.interruptor .pista{flex:none;width:44px;height:26px;border-radius:99px;background:var(--linea);position:relative;transition:background .2s}
+label.interruptor .pista::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}
+label.interruptor input:checked+.pista{background:var(--verde)}label.interruptor input:checked+.pista::after{transform:translateX(18px)}
+label.interruptor input:focus-visible+.pista{outline:3px solid var(--pimenton);outline-offset:2px}
+.vendedor{margin:14px 0 6px;padding:14px 16px;border-radius:14px;background:var(--sup)}.vendedor p{margin:6px 0 0;white-space:pre-line;overflow-wrap:anywhere;font-size:.95rem}
+.detalles{color:var(--gris);margin:4px 0 0}.nota-precio{font-size:.93rem;color:var(--gris);margin:-6px 0 14px}
+.desglose td+td{white-space:nowrap}
 .desglose tr.total td{border:0;font-family:var(--disp);font-size:1.5rem;padding-top:16px}
 .aviso{background:var(--sup);border-radius:14px;padding:14px 16px;font-size:.95rem}
 #pp{margin-top:18px;max-width:420px;background:#fff;border-radius:14px;padding:14px 14px 4px;box-shadow:0 1px 0 rgba(0,0,0,.06),0 0 0 1px var(--linea)}#pp .aviso{margin:0 0 10px;color:#1b2340}
@@ -181,13 +190,14 @@ function extras(d){const L=[];
 const eur=n=>n==null?'':n.toLocaleString('es-ES',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:n%1?2:0})+' €';
 const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function comision(p){return p<=5?1:p<=10?2:p<=15?3:p<=25?4:p<=40?5:p<=55?6:Math.round(p*.10)}
-function desglose(d){const e=ENVIO[d.c];if(e==null||!d.p)return null;const g=comision(d.p);
- const t=Math.ceil((d.p+e+g+0.35)/(1-0.029));return{precio:d.p,envio:e,gestion:g,paypal:+(t-d.p-e-g).toFixed(2),total:t}}
+function desglose(d,env){const e=ENVIO[d.c];if(e==null||!d.p)return null;const g=comision(d.p),ge=comision(e);
+ const base=Math.ceil((d.p+g+0.35)/(1-0.029)),con=Math.ceil((d.p+g+e+ge+0.35)/(1-0.029));
+ return{base:base,conEnvio:con,extraEnvio:con-base,total:env?con:base}}
 function compensa(d){const x=desglose(d);return x&&d.r&&x.total<=d.r*0.92?x:null}
 function consigue(d){return d.c!=='tren'?desglose(d):null}
 const R="../";const LIM=240;window.PRESET="moto";
 const S={cat:new URLSearchParams(location.search).get('c')||window.PRESET||'',k:new URLSearchParams(location.search).get('k')||'',q:'',sort:'new',min:0};
-const SUBN={"chollo": {"consolas": "Consolas", "portatiles": "Portátiles y tablets", "moviles": "Móviles", "lego": "LEGO", "relojes": "Relojes", "audio": "Auriculares y altavoces"}, "moda": {"zapatillas": "Zapatillas y calzado", "ropa": "Ropa"}, "pokemon": {"upc": "Colecciones premium", "display": "Cajas de sobres", "etb": "Cajas Entrenador Élite", "bundle": "Booster bundle"}, "libro": {"manga": "Manga", "comics": "Cómics y tebeos", "novela": "Novelas y sagas", "ingles": "Inglés", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "gasolina": "Gasolina", "hibrido": "Híbridos", "otros": "Otros", "electrico": "Eléctricos"}, "moto": {"gasolina": "Gasolina", "otros": "Otros", "electrico": "Eléctricos"}, "casa": {"venta": "Venta", "alquiler": "Alquiler"}, "tren": {"ouigo": "Ouigo", "avlo": "Avlo", "ave": "AVE", "alvia": "Alvia"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const SUBN={"chollo": {"moviles": "Móviles", "consolas": "Consolas", "relojes": "Relojes", "portatiles": "Portátiles y tablets", "lego": "LEGO", "audio": "Auriculares y altavoces"}, "moda": {"ropa": "Ropa", "zapatillas": "Zapatillas y calzado"}, "pokemon": {"upc": "Colecciones premium", "display": "Cajas de sobres", "etb": "Cajas Entrenador Élite", "bundle": "Booster bundle"}, "libro": {"comics": "Cómics y tebeos", "novela": "Novelas y sagas", "manga": "Manga", "ingles": "Inglés", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "otros": "Otros", "gasolina": "Gasolina", "hibrido": "Híbridos", "electrico": "Eléctricos"}, "moto": {"otros": "Otros", "gasolina": "Gasolina", "electrico": "Eléctricos"}, "casa": {"venta": "Venta", "alquiler": "Alquiler"}, "tren": {"ouigo": "Ouigo", "avlo": "Avlo", "ave": "AVE", "alvia": "Alvia"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 function subs(){const el=document.getElementById('subs');if(!el)return;const N=SUBN[S.cat];
  if(!S.cat||!N||Object.keys(N).length<2){el.hidden=true;el.innerHTML='';return}
  const cnt={};ALL.forEach(d=>{if(d.c===S.cat)cnt[d.k]=(cnt[d.k]||0)+1});
@@ -205,7 +215,7 @@ function foto(d){
   :`<img class="logo-c" src="${R}img/${d.c}.webp" alt="">`}
 function tarjeta(d){const x=consigue(d);let tag,mer,btn;
  if(d.c==='tren'){d={...d,t:'Billete '+(OPN[(d.op||'').toLowerCase()]||d.op)+(d.pr&&d.pr.toUpperCase()!==(d.op||'').toUpperCase()?' · '+d.pr.charAt(0)+d.pr.slice(1).toLowerCase():''),s:fdia(d.dia,d.hora)+(d.tm?' · '+d.tm:'')}}
- if(x){tag=`<span class="tag"><small>en tu casa</small>${eur(x.total)}</span>`;
+ if(x){tag=`<span class="tag"><small>sin envío</small>${eur(x.total)}</span>`;
   mer=d.r&&x.total<d.r?`<div class="mer">Precio normal <s>${eur(d.r)}</s>, te ahorras <b>${eur(Math.round(d.r-x.total))}</b></div>`:(d.r?`<div class="mer">Precio normal ${eur(d.r)}</div>`:'');
   btn=`<a class="btn" href="${R}comprar.html?id=${d.id}">Consíguemelo</a>`}
  else{tag=d.p?`<span class="tag">${eur(d.p)}</span>`:'';

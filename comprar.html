@@ -124,6 +124,15 @@ background:var(--cartel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org
 .compra h1{font-family:var(--disp);font-weight:400;font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.05;margin:0 0 8px}
 .desglose{width:100%;border-collapse:collapse;margin:18px 0}
 .desglose td{padding:10px 0;border-bottom:1px solid var(--linea)}.desglose td+td{text-align:right;font-variant-numeric:tabular-nums}
+label.interruptor{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+label.interruptor input{position:absolute;opacity:0;width:1px;height:1px}
+label.interruptor .pista{flex:none;width:44px;height:26px;border-radius:99px;background:var(--linea);position:relative;transition:background .2s}
+label.interruptor .pista::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}
+label.interruptor input:checked+.pista{background:var(--verde)}label.interruptor input:checked+.pista::after{transform:translateX(18px)}
+label.interruptor input:focus-visible+.pista{outline:3px solid var(--pimenton);outline-offset:2px}
+.vendedor{margin:14px 0 6px;padding:14px 16px;border-radius:14px;background:var(--sup)}.vendedor p{margin:6px 0 0;white-space:pre-line;overflow-wrap:anywhere;font-size:.95rem}
+.detalles{color:var(--gris);margin:4px 0 0}.nota-precio{font-size:.93rem;color:var(--gris);margin:-6px 0 14px}
+.desglose td+td{white-space:nowrap}
 .desglose tr.total td{border:0;font-family:var(--disp);font-size:1.5rem;padding-top:16px}
 .aviso{background:var(--sup);border-radius:14px;padding:14px 16px;font-size:.95rem}
 #pp{margin-top:18px;max-width:420px;background:#fff;border-radius:14px;padding:14px 14px 4px;box-shadow:0 1px 0 rgba(0,0,0,.06),0 0 0 1px var(--linea)}#pp .aviso{margin:0 0 10px;color:#1b2340}
@@ -172,32 +181,38 @@ function extras(d){const L=[];
 const eur=n=>n==null?'':n.toLocaleString('es-ES',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:n%1?2:0})+' €';
 const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function comision(p){return p<=5?1:p<=10?2:p<=15?3:p<=25?4:p<=40?5:p<=55?6:Math.round(p*.10)}
-function desglose(d){const e=ENVIO[d.c];if(e==null||!d.p)return null;const g=comision(d.p);
- const t=Math.ceil((d.p+e+g+0.35)/(1-0.029));return{precio:d.p,envio:e,gestion:g,paypal:+(t-d.p-e-g).toFixed(2),total:t}}
+function desglose(d,env){const e=ENVIO[d.c];if(e==null||!d.p)return null;const g=comision(d.p),ge=comision(e);
+ const base=Math.ceil((d.p+g+0.35)/(1-0.029)),con=Math.ceil((d.p+g+e+ge+0.35)/(1-0.029));
+ return{base:base,conEnvio:con,extraEnvio:con-base,total:env?con:base}}
 function compensa(d){const x=desglose(d);return x&&d.r&&x.total<=d.r*0.92?x:null}
 function consigue(d){return d.c!=='tren'?desglose(d):null}
 const TG="https://t.me/addlist/U82eonj36ehlZmY0",PPL="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-color.svg",CT="https://t.me/RadarChollosPhantom_bot?start=pedido_";
 const id=new URLSearchParams(location.search).get('id');const $=s=>document.querySelector(s);
 fetch('data/ofertas.json?'+Date.now()).then(r=>r.json()).then(j=>{
- const d=j.ofertas.find(o=>o.id===id);const x=d&&consigue(d);
+ const d=j.ofertas.find(o=>o.id===id);let x=d&&consigue(d,false);
  if(!d){$('#c').innerHTML='<div class="texto"><h1>Lo estamos preparando</h1><p>Este chollo acaba de salir y en unos minutos tendrás aquí todos los detalles. Mientras, mira los <a href="ofertas.html">chollos de ahora</a> o <a href="'+CT+id+'" target="_blank" rel="noopener">pregúntanos por él</a>.</p></div>';return}
  if(!x){$('#c').innerHTML='<div class="texto"><h1>Este se compra en mano</h1><p>No se puede enviar, así que no te lo podemos conseguir por encargo. '+(d.u?'<a href="'+esc(d.u)+'" target="_blank" rel="nofollow noopener">Ver el anuncio</a> o mira':'Mira')+' otros <a href="ofertas.html">chollos de ahora</a>.</p></div>';return}
  document.title=d.t+' · Chorízalo';
  $('#c').innerHTML=`<div class="ph">${d.i?`<img src="${esc(d.i)}" referrerpolicy="no-referrer" alt="">`:`<img class="logo-c" src="img/${d.c}.webp" alt="">`}</div>
  <div><h1>${esc(d.t)}</h1><div class="sub">${esc(d.s)}</div>
- <table class="desglose"><tr><td>Precio del anuncio</td><td>${eur(x.precio)}</td></tr>
- <tr><td>Envío protegido a tu casa, pago seguro y gestión</td><td>${eur(+(x.total-x.precio).toFixed(2))}</td></tr>
- <tr class="total"><td>Te llega a casa por</td><td>${eur(x.total)}</td></tr></table>
- ${d.r?`<p>Precio normal de segunda mano: <s>${eur(d.r)}</s>. Te ahorras unos <b>${eur(Math.round(d.r-x.total))}</b>.</p>`:''}
+ ${d.ex?`<p class="detalles">${esc(d.ex)}</p>`:''}
+ <div class="vendedor"><b>Lo que dice el vendedor</b><p>${d.de?esc(d.de):'El vendedor no ha añadido descripción. Si quieres saber algo en concreto, se lo preguntamos por ti.'}</p></div>
+ <table class="desglose"><tr><td>Precio con pago seguro y gestión</td><td>${eur(x.base)}</td></tr>
+ <tr><td><label class="interruptor"><input type="checkbox" id="env" role="switch"><span class="pista"></span>Envío protegido a tu casa</label></td><td id="envp">+${eur(x.extraEnvio)}</td></tr>
+ <tr class="total"><td>Total</td><td id="tot">${eur(x.total)}</td></tr></table>
+ <p class="nota-precio">Nunca pagas más que este precio, y regateamos con el vendedor para intentar conseguirte un descuento.</p>
+ ${d.r?`<p>Precio normal de segunda mano: <s>${eur(d.r)}</s>. Te ahorras unos <b id="aho">${eur(Math.round(d.r-x.total))}</b>.</p>`:''}
  <h2 class="sig">Qué pasa cuando pulsas el botón</h2>
  <ol class="flujo"><li><b>Pre-reservas el importe con PayPal.</b> No se te cobra nada: el dinero solo queda apartado en tu cuenta.</li>
  <li><b>Hablamos con el vendedor.</b> Le pedimos más fotos, comprobamos el estado y le intentamos regatear el precio.</li>
  <li><b>Te escribimos con lo que hemos visto.</b> Si todo está bien, confirmamos la compra y solo entonces se cobra. Si algo no nos convence o ya se vendió, anulamos la pre-reserva y no pagas nada.</li>
- <li><b>Te llega a casa</b> con el envío protegido de la plataforma. Si conseguimos una buena rebaja, te hacemos descuento o te regalamos un bono para tu próxima compra.</li></ol>
+ <li><b>Lo recibes.</b> Si has marcado el envío protegido, te llega a casa con el envío de la plataforma. Si conseguimos una buena rebaja, te hacemos descuento o te regalamos un bono para tu próxima compra.</li></ol>
  <label class="acepto"><input type="checkbox" id="ok"><span>He leído las <a href="condiciones.html">condiciones del servicio</a> y quiero que empecéis ya. Sé que, cuando la compra esté hecha, el servicio queda completado y ya no puedo desistir de él.</span></label>
  <div id="pp"></div><div class="confianza"><img src="${PPL}" alt="PayPal" width="84" height="23"><span>Pago protegido por PayPal. Nunca vemos tu tarjeta.</span></div>
  <div class="humano"><img src="img/mascota.png" alt="" width="44" height="44"><p><b>Detrás de Chorízalo hay una persona, no un robot.</b> Te contestamos personalmente por Telegram, también en fin de semana. <a href="${CT}${d.id}" target="_blank" rel="noopener">Pregúntanos lo que quieras de este chollo</a>.</p></div>
  </div>`;
+ const envBox=$('#env');envBox.addEventListener('change',()=>{x=consigue(d,envBox.checked);$('#tot').textContent=eur(x.total);
+  const a=$('#aho');if(a)a.textContent=eur(Math.max(0,Math.round(d.r-x.total)))});
  if(!window.paypal){$('#pp').innerHTML='<p class="aviso">Los pagos se están activando. Vuelve en unas horas o entra en <a href="'+TG+'">nuestros canales</a>.</p>';return}
  paypal.Buttons({style:{shape:'rect',color:'gold',label:'pay'},
   onInit:(_,act)=>{act.disable();$('#ok').addEventListener('change',e=>{e.target.checked?act.enable():act.disable();$('.acepto').classList.remove('falta')})},
