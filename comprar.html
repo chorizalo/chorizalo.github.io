@@ -241,7 +241,9 @@ Promise.all([fetch('data/ofertas.json?'+Date.now()).then(r=>r.json()),fetch('dat
  const chips=[...chipsTitulo(d.t),...(d.ex?d.ex.split('·').map(z=>z.trim()).filter(Boolean):[]),d.s&&d.s!==d.t?d.s:''].filter((v,i,a)=>v&&a.indexOf(v)===i).slice(0,6);
  const foto=d.i?`<div class="pc-foto" style="--bg:url('${esc(d.i)}')"><img src="${esc(d.i)}" referrerpolicy="no-referrer" alt="${esc(d.t)}"></div>`:`<div class="pc-foto sin"><img src="img/${d.c}.webp" alt=""></div>`;
  const desc=d.de?`<p class="pc-texto">${esc(d.de)}</p>`:`<p class="pc-texto">${esc(f&&f.desc||'Producto de segunda mano.')} Visto en ${esc(plat||'una web de segunda mano')} ${ago(d.ts)}${d.r?`; de segunda mano suele costar unos ${eur(d.r)}`:''}.</p><p class="pc-aviso">El vendedor no ha puesto descripción. Si lo quieres, nosotros le preguntamos lo que necesites y le pedimos más fotos antes de comprar.</p>`;
- const specs=f&&f.specs&&f.specs.length?`<dl class="pc-specs">${f.specs.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>`:'';
+ const cap=((d.t||'').toLowerCase().match(/(\d+)\s?(gb|tb)\b/)||[]);
+ const sp=(f&&f.specs||[]).map(([k,v])=>k==='Almacenamiento'?(cap[1]?[k,cap[1]+' '+cap[2].toUpperCase()]:null):[k,v]).filter(Boolean);
+ const specs=sp.length?`<dl class="pc-specs">${sp.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>`:'';
  const rev=f&&f.rev&&f.rev.length?`<ul class="pc-rev">${f.rev.map(z=>`<li>${esc(z)}</li>`).join('')}</ul>`:'';
  $('#c').innerHTML=`<div class="pc-top"><div class="pc-media">${foto}</div>
  <div class="pc-info">
