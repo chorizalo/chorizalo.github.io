@@ -2,7 +2,7 @@
 <title>Condiciones del servicio | Chorízalo</title><meta name="description" content="Cómo funciona la compra por encargo de Chorízalo.">
 <link rel="canonical" href="https://chorizalo.com/condiciones.html"><meta property="og:title" content="Condiciones del servicio | Chorízalo">
 <meta property="og:description" content="Cómo funciona la compra por encargo de Chorízalo."><meta property="og:image" content="https://chorizalo.com/img/mascota.png">
-<meta name="google-site-verification" content="jztm_0GRcx7NlMFg0t8glysqegEaNaLkGIhAHtxiHow"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#1b2340"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/img/mascota.png"><link rel="manifest" href="/manifest.webmanifest"><script>if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js"))</script>
+<meta name="google-site-verification" content="jztm_0GRcx7NlMFg0t8glysqegEaNaLkGIhAHtxiHow"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#1b2340"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><script>if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js"))</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
 :root{--noche:#1b2340;--pimenton:#d8402b;--pimenton2:#b5311f;--cartel:#ffd43b;--fondo:#ffffff;--tinta:#1b2340;--sup:#eef0f5;--linea:#dfe3ec;
 --gris:#59607a;--verde:#1f7a52;--bloque:#1b2340;--bloque2:#2a345c;--disp:"Bowlby One",Impact,"Arial Black",sans-serif;color-scheme:light}
@@ -196,6 +196,31 @@ footer a{color:var(--tinta)}
 .pc-revs .pc-rev{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px}.pc-revs .humano{margin:0}
 @media (max-width:860px){.pc-revs{grid-template-columns:1fr}.pc-revs .pc-rev{grid-template-columns:1fr}}
 @media (max-width:860px){.pc-top{grid-template-columns:1fr;gap:22px}.pc-media{position:static}.pc-foto{aspect-ratio:1}.pc-bajo{grid-template-columns:1fr}.pc-pasos{grid-template-columns:repeat(2,1fr)}}
+
+/* chorizómetro */
+.cz{margin:0 0 16px;border-radius:20px;background:var(--sup);box-shadow:0 0 0 1px var(--linea)}
+.cz-b{all:unset;box-sizing:border-box;display:flex;gap:14px;align-items:flex-end;width:100%;padding:14px 18px 12px;cursor:pointer;border-radius:20px}
+.cz-b:focus-visible{outline:3px solid var(--cartel);outline-offset:2px}
+.cz img{flex:none;width:50px;height:92px;object-fit:contain;transform-origin:50% 100%;transition:transform .35s cubic-bezier(.2,1.4,.4,1)}
+.cz-b:hover img,.cz.abierto img{transform:rotate(-6deg) translateY(-2px)}
+.cz-c{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.cz-c small{font-size:.78rem;font-weight:700;color:var(--gris);letter-spacing:.04em}
+.cz-n{font-family:var(--disp);font-size:1.15rem;line-height:1}.cz-n b{font-weight:400;font-size:2.1rem;color:var(--cartel)}.cz-n em{font-style:normal;margin-left:8px}
+.cz-barra{display:block;height:8px;border-radius:99px;background:var(--fondo);overflow:hidden}.cz-barra i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--pimenton),var(--cartel))}
+.cz-f{font-size:.92rem;line-height:1.35}
+.cz-ojo{font-size:.85rem;padding:8px 10px;border-radius:10px;background:var(--fondo);box-shadow:inset 3px 0 0 var(--pimenton)}
+.cz-mas{font-size:.85rem;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.cz.abierto .cz-mas{text-decoration:none;color:var(--gris)}
+.cz-p{padding:4px 18px 18px;display:grid;gap:10px}
+.cz-p svg{width:100%;height:auto;display:block}
+.cz-p rect.otro{fill:var(--linea)}.cz-p rect.tu{fill:var(--cartel)}
+.cz-p line.med{stroke:var(--pimenton);stroke-width:2;stroke-dasharray:4 3}.cz-p line.eje{stroke:var(--linea)}
+.cz-p text.et{fill:var(--gris);font-size:11px;font-family:inherit}
+.cz-ley{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0;font-size:.82rem;color:var(--gris)}
+.cz-ley span{display:inline-flex;align-items:center;gap:6px}.sw{display:inline-block;width:12px;height:12px;border-radius:3px}.sw.tu{background:var(--cartel)}.sw.med{width:3px;height:14px;background:var(--pimenton);border-radius:0}
+.cz-p p{margin:0;font-size:.92rem}.cz-acc{display:flex;flex-wrap:wrap;gap:10px}.cz-acc .btn{padding:10px 16px;font-size:.92rem}
+.cz-sin{display:flex;gap:14px;align-items:flex-end;padding:14px 18px 12px}
+@media (prefers-reduced-motion:reduce){.cz img{transition:none}.cz-b:hover img,.cz.abierto img{transform:none}}
 
 </style><script data-noptimize="1" data-cfasync="false" data-cmp-ab="2">(function(){var s=document.createElement("script");s.async=1;s.setAttribute("data-cmp-ab","2");s.src="https://emrldco.com/NTk1MDE1.js?t=595015";document.head.appendChild(s);})();</script></head><body><header class="top"><div class="wrap nav"><a class="logo" href="index.html"><img src="img/mascota.png" alt="">Chorízalo</a>
 <a class="l" href="ofertas.html">Chollos</a><a class="l" href="consejos.html">Consejos</a><a class="l" href="index.html#como">Te lo compramos</a><a class="l" href="index.html#pro">PRO</a>

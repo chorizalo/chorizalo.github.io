@@ -2,7 +2,7 @@
 <title>Te lo compramos | Chorízalo</title><meta name="description" content="Compra por encargo con envío protegido.">
 <link rel="canonical" href="https://chorizalo.com/comprar.html"><meta property="og:title" content="Te lo compramos | Chorízalo">
 <meta property="og:description" content="Compra por encargo con envío protegido."><meta property="og:image" content="https://chorizalo.com/img/mascota.png">
-<meta name="google-site-verification" content="jztm_0GRcx7NlMFg0t8glysqegEaNaLkGIhAHtxiHow"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#1b2340"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/img/mascota.png"><link rel="manifest" href="/manifest.webmanifest"><script>if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js"))</script>
+<meta name="google-site-verification" content="jztm_0GRcx7NlMFg0t8glysqegEaNaLkGIhAHtxiHow"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#1b2340"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><script>if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js"))</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
 :root{--noche:#1b2340;--pimenton:#d8402b;--pimenton2:#b5311f;--cartel:#ffd43b;--fondo:#ffffff;--tinta:#1b2340;--sup:#eef0f5;--linea:#dfe3ec;
 --gris:#59607a;--verde:#1f7a52;--bloque:#1b2340;--bloque2:#2a345c;--disp:"Bowlby One",Impact,"Arial Black",sans-serif;color-scheme:light}
@@ -197,6 +197,31 @@ footer a{color:var(--tinta)}
 @media (max-width:860px){.pc-revs{grid-template-columns:1fr}.pc-revs .pc-rev{grid-template-columns:1fr}}
 @media (max-width:860px){.pc-top{grid-template-columns:1fr;gap:22px}.pc-media{position:static}.pc-foto{aspect-ratio:1}.pc-bajo{grid-template-columns:1fr}.pc-pasos{grid-template-columns:repeat(2,1fr)}}
 
+/* chorizómetro */
+.cz{margin:0 0 16px;border-radius:20px;background:var(--sup);box-shadow:0 0 0 1px var(--linea)}
+.cz-b{all:unset;box-sizing:border-box;display:flex;gap:14px;align-items:flex-end;width:100%;padding:14px 18px 12px;cursor:pointer;border-radius:20px}
+.cz-b:focus-visible{outline:3px solid var(--cartel);outline-offset:2px}
+.cz img{flex:none;width:50px;height:92px;object-fit:contain;transform-origin:50% 100%;transition:transform .35s cubic-bezier(.2,1.4,.4,1)}
+.cz-b:hover img,.cz.abierto img{transform:rotate(-6deg) translateY(-2px)}
+.cz-c{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.cz-c small{font-size:.78rem;font-weight:700;color:var(--gris);letter-spacing:.04em}
+.cz-n{font-family:var(--disp);font-size:1.15rem;line-height:1}.cz-n b{font-weight:400;font-size:2.1rem;color:var(--cartel)}.cz-n em{font-style:normal;margin-left:8px}
+.cz-barra{display:block;height:8px;border-radius:99px;background:var(--fondo);overflow:hidden}.cz-barra i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--pimenton),var(--cartel))}
+.cz-f{font-size:.92rem;line-height:1.35}
+.cz-ojo{font-size:.85rem;padding:8px 10px;border-radius:10px;background:var(--fondo);box-shadow:inset 3px 0 0 var(--pimenton)}
+.cz-mas{font-size:.85rem;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.cz.abierto .cz-mas{text-decoration:none;color:var(--gris)}
+.cz-p{padding:4px 18px 18px;display:grid;gap:10px}
+.cz-p svg{width:100%;height:auto;display:block}
+.cz-p rect.otro{fill:var(--linea)}.cz-p rect.tu{fill:var(--cartel)}
+.cz-p line.med{stroke:var(--pimenton);stroke-width:2;stroke-dasharray:4 3}.cz-p line.eje{stroke:var(--linea)}
+.cz-p text.et{fill:var(--gris);font-size:11px;font-family:inherit}
+.cz-ley{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0;font-size:.82rem;color:var(--gris)}
+.cz-ley span{display:inline-flex;align-items:center;gap:6px}.sw{display:inline-block;width:12px;height:12px;border-radius:3px}.sw.tu{background:var(--cartel)}.sw.med{width:3px;height:14px;background:var(--pimenton);border-radius:0}
+.cz-p p{margin:0;font-size:.92rem}.cz-acc{display:flex;flex-wrap:wrap;gap:10px}.cz-acc .btn{padding:10px 16px;font-size:.92rem}
+.cz-sin{display:flex;gap:14px;align-items:flex-end;padding:14px 18px 12px}
+@media (prefers-reduced-motion:reduce){.cz img{transition:none}.cz-b:hover img,.cz.abierto img{transform:none}}
+
 </style><script src="https://www.paypal.com/sdk/js?client-id=BAAydobA6Wo0H7P_XvZlJNDBYYWaW1MR4KYLBBk3oix6MyjJk2-1nwuktV9HpH9ZDCFFPdVr-ZjoksDyBQ&currency=EUR&intent=authorize&locale=es_ES"></script><script data-noptimize="1" data-cfasync="false" data-cmp-ab="2">(function(){var s=document.createElement("script");s.async=1;s.setAttribute("data-cmp-ab","2");s.src="https://emrldco.com/NTk1MDE1.js?t=595015";document.head.appendChild(s);})();</script></head><body><header class="top"><div class="wrap nav"><a class="logo" href="index.html"><img src="img/mascota.png" alt="">Chorízalo</a>
 <a class="l" href="ofertas.html">Chollos</a><a class="l" href="consejos.html">Consejos</a><a class="l" href="index.html#como">Te lo compramos</a><a class="l" href="index.html#pro">PRO</a>
 <a class="btn osc" href="https://t.me/addlist/U82eonj36ehlZmY0" target="_blank" rel="noopener">Telegram</a></div></header><main class="wrap"><div class="compra" id="c"><p>Cargando el chollo…</p></div></main><footer><div class="wrap"><h2>Cuánto vale de segunda mano</h2><div class="guias"><a href="precio/3ds-xl.html">3Ds Xl</a><a href="precio/adidas-gazelle.html">Adidas Gazelle</a><a href="precio/adidas-samba.html">Adidas Samba</a><a href="precio/airpods-2.html">Airpods 2</a><a href="precio/airpods-3.html">Airpods 3</a><a href="precio/airpods-max.html">Airpods Max</a><a href="precio/airpods-pro.html">Airpods Pro</a><a href="precio/amiibo.html">Amiibo</a><a href="precio/apple-watch.html">Apple Watch</a><a href="precio/barbour.html">Barbour</a><a href="precio/birkenstock-boston.html">Birkenstock Boston</a><a href="precio/brompton.html">Brompton</a><a href="precio/canada-goose.html">Canada Goose</a><a href="precio/canon-eos.html">Canon Eos</a><a href="precio/carhartt-detroit.html">Carhartt Detroit</a><a href="precio/converse-chuck-70.html">Converse Chuck 70</a><a href="precio/dji-mini.html">Dji Mini</a><a href="precio/dr-martens-1460.html">Dr Martens 1460</a><a href="precio/dyson-v10.html">Dyson V10</a><a href="precio/dyson-v8.html">Dyson V8</a><a href="precio/figura-dragon-ball.html">Figura Dragon Ball</a><a href="precio/figura-one-piece.html">Figura One Piece</a><a href="precio/funko-pop.html">Funko Pop</a><a href="precio/garmin-forerunner.html">Garmin Forerunner</a><a href="precio/gba-sp.html">Gba Sp</a><a href="precio/gopro-hero.html">Gopro Hero</a><a href="precio/hot-toys.html">Hot Toys</a><a href="precio/ipad-10.html">Ipad 10</a><a href="precio/ipad-9.html">Ipad 9</a><a href="precio/ipad-air.html">Ipad Air</a><a href="precio/ipad-pro.html">Ipad Pro</a><a href="precio/iphone-11.html">Iphone 11</a><a href="precio/iphone-12.html">Iphone 12</a><a href="precio/iphone-13.html">Iphone 13</a><a href="precio/iphone-14.html">Iphone 14</a><a href="precio/iphone-15.html">Iphone 15</a><a href="precio/iphone-16.html">Iphone 16</a><a href="precio/jbl-flip.html">Jbl Flip</a><a href="precio/jordan-1.html">Jordan 1</a><a href="precio/kindle-paperwhite.html">Kindle Paperwhite</a></div>
@@ -232,7 +257,20 @@ function chipsTitulo(t){const c=[],l=(t||'').toLowerCase();const g=l.match(/(\d+
  const tl=l.match(/talla\s?(\d{2}(?:[.,]5)?|xxs|xs|s|m|l|xl|xxl|única)\b/);if(tl)c.push('Talla '+tl[1].toUpperCase().replace('ÚNICA','única'));
  const col=COLORES.find(([k])=>new RegExp('(^|[^a-zá-ú])'+k).test(l));if(col)c.push(col[1]);
  const y=l.match(/\b(19[89]\d|20[0-2]\d)\b/);if(y)c.push(y[1]);return c}
-Promise.all([fetch('data/ofertas.json?'+Date.now()).then(r=>r.json()),fetch('data/fichas.json?'+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([j,FI])=>{
+function czCalc(P,base){if(!P||!P.q||P.n<15)return null;const q=P.q;let b;
+ if(base<=q[0])b=0;else if(base>=q[20])b=1;else{let i=0;while(i<19&&q[i+1]<base)i++;const f=q[i+1]>q[i]?(base-q[i])/(q[i+1]-q[i]):1;b=(i+Math.min(1,f))/20}
+ const mas=1-b,nota=Math.round(mas*10);
+ const V=nota>=9?['Chorizazo','Más barato que casi todos los anuncios parecidos. Estos vuelan.']:nota>=7?['Buen chorizo','Está más barato que la mayoría de anuncios parecidos.']:nota>=5?['Normalito','Está en la media. Si no corre prisa, puede salir otro mejor.']:['Hay mejores','Ahora mismo hay anuncios parecidos más baratos. Mejor espera al siguiente aviso.'];
+ return{mas:mas,nota:nota,v:V[0],frase:V[1],med:q[10],raro:base<q[1]*0.85}}
+function czHist(P,base){const W=320,H=128,B=22,T=10,n=P.c.length,bw=W/n,mx=Math.max(...P.c,1),fin=P.lo+P.w*n;
+ const xOf=v=>Math.max(1,Math.min(W-1,(v-P.lo)/(fin-P.lo)*W));let s='';
+ P.c.forEach((c,i)=>{const h=Math.max(c?2:0,Math.round((H-B-T)*c/mx)),a=P.lo+i*P.w;const tu=(base>=a&&base<a+P.w)||(i===0&&base<a)||(i===n-1&&base>=fin);
+  s+=`<rect x="${(i*bw+1).toFixed(1)}" y="${H-B-h}" width="${(bw-2).toFixed(1)}" height="${h}" rx="2" class="${tu?'tu':'otro'}"><title>${eur(a)} – ${eur(a+P.w)}: ${c} anuncios</title></rect>`});
+ const xm=xOf(P.q[10]).toFixed(1);
+ s+=`<line x1="${xm}" x2="${xm}" y1="${T-6}" y2="${H-B}" class="med"/><line x1="0" x2="${W}" y1="${H-B}" y2="${H-B}" class="eje"/>`;
+ s+=`<text x="0" y="${H-6}" class="et">${eur(P.lo)}</text><text x="${W}" y="${H-6}" class="et" text-anchor="end">${eur(fin)}</text>`;
+ return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Precios de ${P.n} anuncios parecidos, de ${eur(P.q[0])} a ${eur(P.q[20])}; mediana ${eur(P.q[10])}">${s}</svg>`}
+Promise.all([fetch('data/ofertas.json?'+Date.now()).then(r=>r.json()),fetch('data/fichas.json?'+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({})),fetch('data/precios.json?'+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([j,FI,PR])=>{
  const d=j.ofertas.find(o=>o.id===id);let x=d&&consigue(d,false);
  if(!d){$('#c').innerHTML='<div class="texto"><h1>Lo estamos preparando</h1><p>Este chollo acaba de salir y en unos minutos tendrás aquí todos los detalles. Mientras, mira los <a href="ofertas.html">chollos de ahora</a> o <a href="'+CT+id+'" target="_blank" rel="noopener">pregúntanos por él</a>.</p></div>';return}
  if(!x){$('#c').innerHTML='<div class="texto"><h1>Este se compra en mano</h1><p>No se puede enviar, así que no te lo podemos conseguir por encargo. '+(d.u?'<a href="'+esc(d.u)+'" target="_blank" rel="nofollow noopener">Ver el anuncio</a> o mira':'Mira')+' otros <a href="ofertas.html">chollos de ahora</a>.</p></div>';return}
@@ -245,11 +283,24 @@ Promise.all([fetch('data/ofertas.json?'+Date.now()).then(r=>r.json()),fetch('dat
  const sp=(f&&f.specs||[]).map(([k,v])=>k==='Almacenamiento'?(cap[1]?[k,cap[1]+' '+cap[2].toUpperCase()]:null):[k,v]).filter(Boolean);
  const specs=sp.length?`<dl class="pc-specs">${sp.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>`:'';
  const rev=f&&f.rev&&f.rev.length?`<ul class="pc-rev">${f.rev.map(z=>`<li>${esc(z)}</li>`).join('')}</ul>`:'';
+ const P=d.pk&&PR.k&&PR.k[d.pk]||null,cz=czCalc(P,x.base);
+ const czTxt=cz?`${cz.v} (${cz.nota}/10) según el chorizómetro de Chorízalo: ${d.t} por ${eur(x.base)}`:'';
+ const czHtml=cz?`<div class="cz"><button type="button" class="cz-b" id="czb" aria-expanded="false" aria-controls="czp">
+   <img src="img/mascota-v1-cuerpo.webp" alt="" width="50" height="92">
+   <span class="cz-c"><small>Chorizómetro</small><span class="cz-n"><b>${cz.nota}</b>/10 <em>${esc(cz.v)}</em></span>
+    <span class="cz-barra" aria-hidden="true"><i style="width:${cz.nota*10}%"></i></span>
+    <span class="cz-f">${esc(cz.frase)}</span>${cz.raro?'<span class="cz-ojo">Ojo: está muy por debajo de lo normal. Antes de comprar comprobamos que no esté roto, bloqueado ni sea un timo.</span>':''}<span class="cz-mas">Ver los precios de ${P.n} anuncios parecidos</span></span></button>
+  <div class="cz-p" id="czp" hidden>${czHist(P,x.base)}
+   <p class="cz-ley"><span><i class="sw tu"></i>Donde cae nuestro precio</span><span><i class="sw med"></i>Mediana</span></p>
+   <p>Mediana de ${P.n} anuncios de ${esc(P.nom)} ${P.dias===1?'en el último día':'en los últimos '+P.dias+' días'}: <b>${eur(cz.med)}</b>. Con nosotros: <b>${eur(x.base)}</b> sin envío. Comparamos nuestro precio, no el del anuncio.</p>
+   <p class="cz-acc"><a class="btn" href="https://t.me/share/url?url=${encodeURIComponent(location.href)}&text=${encodeURIComponent(czTxt)}" target="_blank" rel="noopener">Compártelo por Telegram</a><a class="btn sec" href="${CT}${d.id}" target="_blank" rel="noopener">Pregúntale a Chorízalo</a></p></div></div>`
+  :`<div class="cz cz-sin"><img src="img/mascota-v1-cuerpo.webp" alt="" width="50" height="92"><span class="cz-c"><small>Chorizómetro</small><span class="cz-f">Aún no tengo bastantes anuncios parecidos para puntuarlo.</span></span></div>`;
  $('#c').innerHTML=`<div class="pc-top"><div class="pc-media">${foto}</div>
  <div class="pc-info">
   <p class="pc-meta"><span>${esc(CN[d.c]||'')}</span>${plat?`<span>${esc(plat)}</span>`:''}<span>${ago(d.ts)}</span></p>
   <h1>${esc(d.t)}</h1>
   ${chips.length?`<div class="pc-chips">${chips.map(z=>`<span>${esc(z)}</span>`).join('')}</div>`:''}
+  ${czHtml}
   <div class="pc-caja">
    <div class="pc-fila"><span>Precio</span><b id="pre">${eur(x.base)}</b></div>
    <div class="pc-fila"><label class="interruptor"><input type="checkbox" id="env" role="switch"><span class="pista"></span>Envío protegido a tu casa</label><span id="envp">+${eur(x.extraEnvio)}</span></div>
@@ -268,6 +319,7 @@ Promise.all([fetch('data/ofertas.json?'+Date.now()).then(r=>r.json()),fetch('dat
   <section class="pc-revs"><h2>Antes de comprar revisamos</h2>${rev||'<ul class="pc-rev"><li>Que coincida con el anuncio</li><li>Fotos de los detalles que importan</li><li>El historial del vendedor</li></ul>'}
    <div class="humano"><img src="img/mascota.png" alt="" width="44" height="44"><p><b>Detrás de Chorízalo hay una persona.</b> <a href="${CT}${d.id}" target="_blank" rel="noopener">Pregúntanos lo que quieras de este chollo</a>.</p></div></section>
  </div>`;
+ const czb=$('#czb');if(czb)czb.addEventListener('click',()=>{const o=czb.getAttribute('aria-expanded')!=='true';czb.setAttribute('aria-expanded',o);$('#czp').hidden=!o;czb.closest('.cz').classList.toggle('abierto',o)});
  const envBox=$('#env');envBox.addEventListener('change',()=>{x=consigue(d,envBox.checked);$('#tot').textContent=eur(x.total);const T=$('#tot');T.classList.remove('late');void T.offsetWidth;T.classList.add('late');
   const a=$('#aho');if(a)a.textContent=eur(Math.max(0,Math.round(d.r-x.total)))});
  if(!window.paypal){$('#pp').innerHTML='<p class="aviso">Los pagos se están activando. Vuelve en unas horas o entra en <a href="'+TG+'">nuestros canales</a>.</p>';return}
