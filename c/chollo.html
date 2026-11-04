@@ -183,13 +183,18 @@ footer a{color:var(--tinta)}
 .pc-pasos{list-style:none;counter-reset:p;padding:0;margin:16px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .pc-pasos li{counter-increment:p;font-size:.8rem;line-height:1.3;color:var(--gris)}.pc-pasos li::before{content:counter(p);display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--cartel);color:#1b2340;font-weight:800;font-size:.78rem;margin-bottom:6px}
 .pc-pasos b{display:block;color:var(--tinta);font-size:.88rem}
-.pc-bajo{display:grid;grid-template-columns:1.15fr 1fr;gap:24px 48px;margin-top:40px}
+.pc-bajo{display:grid;gap:20px;margin-top:36px}
 .pc-bajo section{padding:22px;border-radius:20px;background:var(--sup)}
 .pc-bajo h2{font-size:1.35rem;margin:0 0 14px}.pc-bajo h3{font-size:1rem;margin:20px 0 6px}
-.pc-specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:0}
+.pc-specs{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin:0}
 .pc-specs div{padding:10px 12px;border-radius:12px;background:var(--fondo)}.pc-specs dt{font-size:.78rem;color:var(--gris);font-weight:700}.pc-specs dd{margin:2px 0 0;font-weight:600}
 .pc-texto{margin:0;white-space:pre-line;overflow-wrap:anywhere}.pc-aviso{margin:10px 0 0;padding:10px 12px;border-radius:12px;background:var(--fondo);font-size:.9rem}
 .pc-rev{margin:0;padding-left:1.2em;display:grid;gap:6px}
+.pc-desc{margin-top:18px;padding:18px 20px;border-radius:20px;background:var(--sup)}.pc-desc h2{font-size:1.15rem;margin:0 0 8px}
+.pc-ref{margin:12px 0 0;font-size:.82rem;color:var(--gris)}
+.pc-revs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:8px 32px;align-items:start}.pc-revs h2{grid-column:1/-1}
+.pc-revs .pc-rev{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px}.pc-revs .humano{margin:0}
+@media (max-width:860px){.pc-revs{grid-template-columns:1fr}.pc-revs .pc-rev{grid-template-columns:1fr}}
 @media (max-width:860px){.pc-top{grid-template-columns:1fr;gap:22px}.pc-media{position:static}.pc-foto{aspect-ratio:1}.pc-bajo{grid-template-columns:1fr}.pc-pasos{grid-template-columns:repeat(2,1fr)}}
 
 </style><script data-noptimize="1" data-cfasync="false" data-cmp-ab="2">(function(){var s=document.createElement("script");s.async=1;s.setAttribute("data-cmp-ab","2");s.src="https://emrldco.com/NTk1MDE1.js?t=595015";document.head.appendChild(s);})();</script></head><body><header class="top"><div class="wrap nav"><a class="logo" href="../index.html"><img src="../img/mascota.png" alt="">Chorízalo</a>
@@ -237,7 +242,7 @@ function compensa(d){const x=desglose(d,false);return x&&d.r&&x.total<=d.r*0.92?
 function consigue(d,env){return d.c!=='tren'?desglose(d,env):null}
 const R="../";const LIM=240;window.PRESET="chollo";
 const S={cat:new URLSearchParams(location.search).get('c')||window.PRESET||'',k:new URLSearchParams(location.search).get('k')||'',q:'',sort:'new',min:0};
-const SUBN={"chollo": {"consolas": "Consolas", "portatiles": "Portátiles y tablets", "foto": "Foto y drones", "moviles": "Móviles", "relojes": "Relojes", "audio": "Auriculares y altavoces", "hogar": "Hogar y cocina", "lego": "LEGO"}, "moda": {"ropa": "Ropa", "zapatillas": "Zapatillas y calzado"}, "pokemon": {"etb": "Cajas Entrenador Élite", "display": "Cajas de sobres", "upc": "Colecciones premium", "bundle": "Booster bundle"}, "libro": {"comics": "Cómics y tebeos", "manga": "Manga", "novela": "Novelas y sagas", "ingles": "Inglés", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "gasolina": "Gasolina", "otros": "Otros", "hibrido": "Híbridos", "electrico": "Eléctricos"}, "moto": {"otros": "Otros", "gasolina": "Gasolina", "electrico": "Eléctricos"}, "casa": {"venta": "Venta", "alquiler": "Alquiler"}, "tren": {"ave": "AVE", "ouigo": "Ouigo", "avlo": "Avlo", "alvia": "Alvia"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const SUBN={"chollo": {"consolas": "Consolas", "lego": "LEGO", "portatiles": "Portátiles y tablets", "foto": "Foto y drones", "moviles": "Móviles", "relojes": "Relojes", "audio": "Auriculares y altavoces", "hogar": "Hogar y cocina"}, "moda": {"ropa": "Ropa", "zapatillas": "Zapatillas y calzado"}, "pokemon": {"etb": "Cajas Entrenador Élite", "upc": "Colecciones premium", "display": "Cajas de sobres", "bundle": "Booster bundle"}, "libro": {"comics": "Cómics y tebeos", "manga": "Manga", "novela": "Novelas y sagas", "ingles": "Inglés", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "gasolina": "Gasolina", "otros": "Otros", "hibrido": "Híbridos", "electrico": "Eléctricos"}, "moto": {"gasolina": "Gasolina", "otros": "Otros", "electrico": "Eléctricos"}, "casa": {"venta": "Venta", "alquiler": "Alquiler"}, "tren": {"ave": "AVE", "ouigo": "Ouigo", "avlo": "Avlo", "alvia": "Alvia"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 function subs(){const el=document.getElementById('subs');if(!el)return;const N=SUBN[S.cat];
  if(!S.cat||!N||Object.keys(N).length<2){el.hidden=true;el.innerHTML='';return}
  const cnt={};ALL.forEach(d=>{if(d.c===S.cat)cnt[d.k]=(cnt[d.k]||0)+1});
