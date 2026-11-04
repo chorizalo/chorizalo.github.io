@@ -160,6 +160,37 @@ footer a{color:var(--tinta)}
 @media (prefers-color-scheme:dark){:root{--fondo:#121830;--tinta:#f2f3f8;--sup:#1d2442;--linea:#2c355a;--gris:#a8afc8;--bloque:#0a0f22;--bloque2:#1d2442;--verde:#5cc994;color-scheme:dark}
 .campos select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23f2f3f8' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E")}
 .chip[aria-pressed=true]{background:var(--cartel);color:#1b2340}.servicio{box-shadow:0 0 0 1px var(--linea)}}
+/* ficha de producto */
+.compra{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px 48px;max-width:1240px;margin-inline:auto;align-items:start}
+.pc-media{position:sticky;top:84px}
+.pc-foto{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:var(--sup)}
+.pc-foto::before{content:"";position:absolute;inset:-30px;background:var(--bg) center/cover;filter:blur(28px) brightness(.55);transform:scale(1.1)}
+.pc-foto img{position:relative;width:100%;height:100%;object-fit:contain}
+.pc-foto.sin img{object-fit:contain;padding:18%}
+.pc-meta{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0 0 8px;color:var(--gris);font-size:.9rem;font-weight:600}
+.pc-meta span+span::before{content:"·";margin-right:14px}
+.pc-info h1{font-family:var(--disp);font-weight:400;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.02;margin:0 0 14px;text-wrap:balance}
+.pc-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.pc-chips span{padding:6px 12px;border-radius:999px;background:var(--sup);font-size:.88rem;font-weight:600}
+.pc-caja{padding:20px;border-radius:20px;background:var(--sup);box-shadow:0 0 0 1px var(--linea)}
+.pc-fila{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--linea);font-variant-numeric:tabular-nums}
+.pc-fila b,.pc-fila>span:last-child{white-space:nowrap}
+.pc-total{border:0;padding-top:14px}.pc-total span{font-family:var(--disp);font-size:1.25rem}.pc-total b{font-family:var(--disp);font-weight:400;font-size:2rem;color:var(--cartel)}
+.pc-total b.late{animation:sube .45s cubic-bezier(.2,1.4,.4,1)}@keyframes sube{50%{transform:scale(1.12)}}
+.pc-ahorro{margin:6px 0 0;font-size:.95rem}.pc-ahorro b{color:var(--verde)}
+.pc-nota{margin:10px 0 0;font-size:.85rem;color:var(--gris)}
+.pc-caja .acepto{margin-top:14px;font-size:.85rem;max-width:none}.pc-caja #pp{max-width:none;margin-top:12px}
+.pc-pasos{list-style:none;counter-reset:p;padding:0;margin:16px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pc-pasos li{counter-increment:p;font-size:.8rem;line-height:1.3;color:var(--gris)}.pc-pasos li::before{content:counter(p);display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--cartel);color:#1b2340;font-weight:800;font-size:.78rem;margin-bottom:6px}
+.pc-pasos b{display:block;color:var(--tinta);font-size:.88rem}
+.pc-bajo{grid-column:1/-1;display:grid;grid-template-columns:1.15fr 1fr;gap:24px 48px}
+.pc-bajo section{padding:22px;border-radius:20px;background:var(--sup)}
+.pc-bajo h2{font-size:1.35rem;margin:0 0 14px}.pc-bajo h3{font-size:1rem;margin:20px 0 6px}
+.pc-specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:0}
+.pc-specs div{padding:10px 12px;border-radius:12px;background:var(--fondo)}.pc-specs dt{font-size:.78rem;color:var(--gris);font-weight:700}.pc-specs dd{margin:2px 0 0;font-weight:600}
+.pc-texto{margin:0;white-space:pre-line;overflow-wrap:anywhere}.pc-aviso{margin:10px 0 0;padding:10px 12px;border-radius:12px;background:var(--fondo);font-size:.9rem}
+.pc-rev{margin:0;padding-left:1.2em;display:grid;gap:6px}
+@media (max-width:860px){.compra{grid-template-columns:1fr;gap:22px}.pc-media{position:static}.pc-foto{aspect-ratio:1}.pc-bajo{grid-template-columns:1fr}.pc-pasos{grid-template-columns:repeat(2,1fr)}}
+
 </style><script src="https://www.paypal.com/sdk/js?client-id=BAAydobA6Wo0H7P_XvZlJNDBYYWaW1MR4KYLBBk3oix6MyjJk2-1nwuktV9HpH9ZDCFFPdVr-ZjoksDyBQ&currency=EUR&intent=authorize&locale=es_ES"></script><script data-noptimize="1" data-cfasync="false" data-cmp-ab="2">(function(){var s=document.createElement("script");s.async=1;s.setAttribute("data-cmp-ab","2");s.src="https://emrldco.com/NTk1MDE1.js?t=595015";document.head.appendChild(s);})();</script></head><body><header class="top"><div class="wrap nav"><a class="logo" href="index.html"><img src="img/mascota.png" alt="">Chorízalo</a>
 <a class="l" href="ofertas.html">Chollos</a><a class="l" href="consejos.html">Consejos</a><a class="l" href="index.html#como">Te lo compramos</a><a class="l" href="index.html#pro">PRO</a>
 <a class="btn osc" href="https://t.me/addlist/U82eonj36ehlZmY0" target="_blank" rel="noopener">Telegram</a></div></header><main class="wrap"><div class="compra" id="c"><p>Cargando el chollo…</p></div></main><footer><div class="wrap"><h2>Cuánto vale de segunda mano</h2><div class="guias"><a href="precio/3ds-xl.html">3Ds Xl</a><a href="precio/adidas-gazelle.html">Adidas Gazelle</a><a href="precio/adidas-samba.html">Adidas Samba</a><a href="precio/airpods-2.html">Airpods 2</a><a href="precio/airpods-3.html">Airpods 3</a><a href="precio/airpods-max.html">Airpods Max</a><a href="precio/airpods-pro.html">Airpods Pro</a><a href="precio/amiibo.html">Amiibo</a><a href="precio/apple-watch.html">Apple Watch</a><a href="precio/barbour.html">Barbour</a><a href="precio/birkenstock-boston.html">Birkenstock Boston</a><a href="precio/brompton.html">Brompton</a><a href="precio/canada-goose.html">Canada Goose</a><a href="precio/canon-eos.html">Canon Eos</a><a href="precio/carhartt-detroit.html">Carhartt Detroit</a><a href="precio/converse-chuck-70.html">Converse Chuck 70</a><a href="precio/dji-mini.html">Dji Mini</a><a href="precio/dr-martens-1460.html">Dr Martens 1460</a><a href="precio/dyson-v10.html">Dyson V10</a><a href="precio/dyson-v8.html">Dyson V8</a><a href="precio/figura-dragon-ball.html">Figura Dragon Ball</a><a href="precio/figura-one-piece.html">Figura One Piece</a><a href="precio/funko-pop.html">Funko Pop</a><a href="precio/garmin-forerunner.html">Garmin Forerunner</a><a href="precio/gba-sp.html">Gba Sp</a><a href="precio/gopro-hero.html">Gopro Hero</a><a href="precio/hot-toys.html">Hot Toys</a><a href="precio/ipad-10.html">Ipad 10</a><a href="precio/ipad-9.html">Ipad 9</a><a href="precio/ipad-air.html">Ipad Air</a><a href="precio/ipad-pro.html">Ipad Pro</a><a href="precio/iphone-11.html">Iphone 11</a><a href="precio/iphone-12.html">Iphone 12</a><a href="precio/iphone-13.html">Iphone 13</a><a href="precio/iphone-14.html">Iphone 14</a><a href="precio/iphone-15.html">Iphone 15</a><a href="precio/iphone-16.html">Iphone 16</a><a href="precio/jbl-flip.html">Jbl Flip</a><a href="precio/jordan-1.html">Jordan 1</a><a href="precio/kindle-paperwhite.html">Kindle Paperwhite</a></div>
@@ -188,30 +219,47 @@ function compensa(d){const x=desglose(d,false);return x&&d.r&&x.total<=d.r*0.92?
 function consigue(d,env){return d.c!=='tren'?desglose(d,env):null}
 const TG="https://t.me/addlist/U82eonj36ehlZmY0",PPL="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-color.svg",CT="https://t.me/RadarChollosPhantom_bot?start=pedido_";
 const id=new URLSearchParams(location.search).get('id');const $=s=>document.querySelector(s);
-fetch('data/ofertas.json?'+Date.now()).then(r=>r.json()).then(j=>{
+const ago=ts=>{const m=Math.round((Date.now()/1000-ts)/60);return m<60?`hace ${m} min`:m<1440?`hace ${Math.round(m/60)} h`:`hace ${Math.round(m/1440)} días`};
+const PLAT={wallapop:'Wallapop',vinted:'Vinted',todocoleccion:'todocoleccion',iberlibro:'IberLibro',cardmarket:'Cardmarket'};
+const COLORES=[['titanio natural','Titanio natural'],['titanio negro','Titanio negro'],['titanio azul','Titanio azul'],['titanio blanco','Titanio blanco'],['azul sierra','Azul sierra'],['verde alpino','Verde alpino'],['blanco estrella','Blanco estrella'],['medianoche','Medianoche'],['grafito','Grafito'],['plateado','Plateado'],['plata','Plata'],['dorad','Dorado'],['negr','Negro'],['blanc','Blanco'],['gris','Gris'],['azul','Azul'],['roj','Rojo'],['verde','Verde'],['rosa','Rosa'],['morad','Morado'],['lila','Lila'],['amarill','Amarillo'],['naranja','Naranja'],['beige','Beige'],['marr','Marrón']];
+function chipsTitulo(t){const c=[],l=(t||'').toLowerCase();const g=l.match(/(\d+)\s?(gb|tb)\b/);if(g)c.push(g[1]+' '+g[2].toUpperCase());
+ const tl=l.match(/talla\s?(\d{2}(?:[.,]5)?|xxs|xs|s|m|l|xl|xxl|única)\b/);if(tl)c.push('Talla '+tl[1].toUpperCase().replace('ÚNICA','única'));
+ const col=COLORES.find(([k])=>new RegExp('(^|[^a-zá-ú])'+k).test(l));if(col)c.push(col[1]);
+ const y=l.match(/\b(19[89]\d|20[0-2]\d)\b/);if(y)c.push(y[1]);return c}
+Promise.all([fetch('data/ofertas.json?'+Date.now()).then(r=>r.json()),fetch('data/fichas.json?'+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))]).then(([j,FI])=>{
  const d=j.ofertas.find(o=>o.id===id);let x=d&&consigue(d,false);
  if(!d){$('#c').innerHTML='<div class="texto"><h1>Lo estamos preparando</h1><p>Este chollo acaba de salir y en unos minutos tendrás aquí todos los detalles. Mientras, mira los <a href="ofertas.html">chollos de ahora</a> o <a href="'+CT+id+'" target="_blank" rel="noopener">pregúntanos por él</a>.</p></div>';return}
  if(!x){$('#c').innerHTML='<div class="texto"><h1>Este se compra en mano</h1><p>No se puede enviar, así que no te lo podemos conseguir por encargo. '+(d.u?'<a href="'+esc(d.u)+'" target="_blank" rel="nofollow noopener">Ver el anuncio</a> o mira':'Mira')+' otros <a href="ofertas.html">chollos de ahora</a>.</p></div>';return}
  document.title=d.t+' · Chorízalo';
- $('#c').innerHTML=`<div class="ph">${d.i?`<img src="${esc(d.i)}" referrerpolicy="no-referrer" alt="">`:`<img class="logo-c" src="img/${d.c}.webp" alt="">`}</div>
- <div><h1>${esc(d.t)}</h1><div class="sub">${esc(d.s)}</div>
- ${d.ex?`<p class="detalles">${esc(d.ex)}</p>`:''}
- <div class="vendedor"><b>Lo que dice el vendedor</b><p>${d.de?esc(d.de):'El vendedor no ha añadido descripción. Si quieres saber algo en concreto, se lo preguntamos por ti.'}</p></div>
- <table class="desglose"><tr><td>Precio con pago seguro y gestión</td><td>${eur(x.base)}</td></tr>
- <tr><td><label class="interruptor"><input type="checkbox" id="env" role="switch"><span class="pista"></span>Envío protegido a tu casa</label></td><td id="envp">+${eur(x.extraEnvio)}</td></tr>
- <tr class="total"><td>Total</td><td id="tot">${eur(x.total)}</td></tr></table>
- <p class="nota-precio">Nunca pagas más que este precio, y regateamos con el vendedor para intentar conseguirte un descuento.</p>
- ${d.r?`<p>Precio normal de segunda mano: <s>${eur(d.r)}</s>. Te ahorras unos <b id="aho">${eur(Math.round(d.r-x.total))}</b>.</p>`:''}
- <h2 class="sig">Qué pasa cuando pulsas el botón</h2>
- <ol class="flujo"><li><b>Pre-reservas el importe con PayPal.</b> No se te cobra nada: el dinero solo queda apartado en tu cuenta.</li>
- <li><b>Hablamos con el vendedor.</b> Le pedimos más fotos, comprobamos el estado y le intentamos regatear el precio.</li>
- <li><b>Te escribimos con lo que hemos visto.</b> Si todo está bien, confirmamos la compra y solo entonces se cobra. Si algo no nos convence o ya se vendió, anulamos la pre-reserva y no pagas nada.</li>
- <li><b>Lo recibes.</b> Si has marcado el envío protegido, te llega a casa con el envío de la plataforma. Si conseguimos una buena rebaja, te hacemos descuento o te regalamos un bono para tu próxima compra.</li></ol>
- <label class="acepto"><input type="checkbox" id="ok"><span>He leído las <a href="condiciones.html">condiciones del servicio</a> y quiero que empecéis ya. Sé que, cuando la compra esté hecha, el servicio queda completado y ya no puedo desistir de él.</span></label>
- <div id="pp"></div><div class="confianza"><img src="${PPL}" alt="PayPal" width="84" height="23"><span>Pago protegido por PayPal. Nunca vemos tu tarjeta.</span></div>
- <div class="humano"><img src="img/mascota.png" alt="" width="44" height="44"><p><b>Detrás de Chorízalo hay una persona, no un robot.</b> Te contestamos personalmente por Telegram, también en fin de semana. <a href="${CT}${d.id}" target="_blank" rel="noopener">Pregúntanos lo que quieras de este chollo</a>.</p></div>
+ const f=d.f&&FI[d.f]||null;const plat=PLAT[(d.src||'').toLowerCase()]||d.src||'';
+ const chips=[...chipsTitulo(d.t),...(d.ex?d.ex.split('·').map(z=>z.trim()).filter(Boolean):[]),d.s&&d.s!==d.t?d.s:''].filter((v,i,a)=>v&&a.indexOf(v)===i).slice(0,6);
+ const foto=d.i?`<div class="pc-foto" style="--bg:url('${esc(d.i)}')"><img src="${esc(d.i)}" referrerpolicy="no-referrer" alt="${esc(d.t)}"></div>`:`<div class="pc-foto sin"><img src="img/${d.c}.webp" alt=""></div>`;
+ const desc=d.de?`<p class="pc-texto">${esc(d.de)}</p>`:`<p class="pc-texto">${esc(f&&f.desc||'Producto de segunda mano.')} Visto en ${esc(plat||'una web de segunda mano')} ${ago(d.ts)}${d.r?`; de segunda mano suele costar unos ${eur(d.r)}`:''}.</p><p class="pc-aviso">El vendedor no ha puesto descripción. Si lo quieres, nosotros le preguntamos lo que necesites y le pedimos más fotos antes de comprar.</p>`;
+ const specs=f&&f.specs&&f.specs.length?`<dl class="pc-specs">${f.specs.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>`:'';
+ const rev=f&&f.rev&&f.rev.length?`<ul class="pc-rev">${f.rev.map(z=>`<li>${esc(z)}</li>`).join('')}</ul>`:'';
+ $('#c').innerHTML=`<div class="pc-media">${foto}</div>
+ <div class="pc-info">
+  <p class="pc-meta"><span>${esc(CN[d.c]||'')}</span>${plat?`<span>${esc(plat)}</span>`:''}<span>${ago(d.ts)}</span></p>
+  <h1>${esc(d.t)}</h1>
+  ${chips.length?`<div class="pc-chips">${chips.map(z=>`<span>${esc(z)}</span>`).join('')}</div>`:''}
+  <div class="pc-caja">
+   <div class="pc-fila"><span>Precio</span><b id="pre">${eur(x.base)}</b></div>
+   <div class="pc-fila"><label class="interruptor"><input type="checkbox" id="env" role="switch"><span class="pista"></span>Envío protegido a tu casa</label><span id="envp">+${eur(x.extraEnvio)}</span></div>
+   <div class="pc-fila pc-total"><span>Total</span><b id="tot">${eur(x.total)}</b></div>
+   ${d.r?`<p class="pc-ahorro">Suele costar <s>${eur(d.r)}</s> de segunda mano · te ahorras <b id="aho">${eur(Math.max(0,Math.round(d.r-x.total)))}</b></p>`:''}
+   <p class="pc-nota">Nunca pagas más que este precio, y regateamos con el vendedor para intentar conseguirte un descuento. No se cobra nada hasta que cerramos la compra.</p>
+   <label class="acepto"><input type="checkbox" id="ok"><span>Acepto las <a href="condiciones.html">condiciones</a> y quiero que empecéis ya (cuando la compra esté hecha, ya no puedo desistir del servicio).</span></label>
+   <div id="pp"></div>
+   <div class="confianza"><img src="${PPL}" alt="PayPal" width="84" height="23"><span>Pago protegido por PayPal. Nunca vemos tu tarjeta.</span></div>
+  </div>
+  <ol class="pc-pasos"><li><b>Pre-reservas</b><span>Sin cobro: el dinero sigue en tu PayPal</span></li><li><b>Regateamos</b><span>Fotos, estado y descuento</span></li><li><b>Te confirmamos</b><span>Solo entonces se cobra</span></li><li><b>Lo recibes</b><span>Con envío protegido si lo marcas</span></li></ol>
+ </div>
+ <div class="pc-bajo">
+  <section><h2>${f&&f.n?'Sobre el '+esc(f.n):'Sobre el producto'}</h2>${specs}<h3>${d.de?'Lo que dice el vendedor':'Descripción'}</h3>${desc}</section>
+  <section><h2>Antes de comprar revisamos</h2>${rev||'<ul class="pc-rev"><li>Que coincida con el anuncio</li><li>Fotos de los detalles que importan</li><li>El historial del vendedor</li></ul>'}
+   <div class="humano"><img src="img/mascota.png" alt="" width="44" height="44"><p><b>Detrás de Chorízalo hay una persona.</b> <a href="${CT}${d.id}" target="_blank" rel="noopener">Pregúntanos lo que quieras de este chollo</a>.</p></div></section>
  </div>`;
- const envBox=$('#env');envBox.addEventListener('change',()=>{x=consigue(d,envBox.checked);$('#tot').textContent=eur(x.total);
+ const envBox=$('#env');envBox.addEventListener('change',()=>{x=consigue(d,envBox.checked);$('#tot').textContent=eur(x.total);const T=$('#tot');T.classList.remove('late');void T.offsetWidth;T.classList.add('late');
   const a=$('#aho');if(a)a.textContent=eur(Math.max(0,Math.round(d.r-x.total)))});
  if(!window.paypal){$('#pp').innerHTML='<p class="aviso">Los pagos se están activando. Vuelve en unas horas o entra en <a href="'+TG+'">nuestros canales</a>.</p>';return}
  paypal.Buttons({style:{shape:'rect',color:'gold',label:'pay'},

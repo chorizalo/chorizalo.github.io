@@ -160,6 +160,37 @@ footer a{color:var(--tinta)}
 @media (prefers-color-scheme:dark){:root{--fondo:#121830;--tinta:#f2f3f8;--sup:#1d2442;--linea:#2c355a;--gris:#a8afc8;--bloque:#0a0f22;--bloque2:#1d2442;--verde:#5cc994;color-scheme:dark}
 .campos select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23f2f3f8' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E")}
 .chip[aria-pressed=true]{background:var(--cartel);color:#1b2340}.servicio{box-shadow:0 0 0 1px var(--linea)}}
+/* ficha de producto */
+.compra{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px 48px;max-width:1240px;margin-inline:auto;align-items:start}
+.pc-media{position:sticky;top:84px}
+.pc-foto{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:var(--sup)}
+.pc-foto::before{content:"";position:absolute;inset:-30px;background:var(--bg) center/cover;filter:blur(28px) brightness(.55);transform:scale(1.1)}
+.pc-foto img{position:relative;width:100%;height:100%;object-fit:contain}
+.pc-foto.sin img{object-fit:contain;padding:18%}
+.pc-meta{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0 0 8px;color:var(--gris);font-size:.9rem;font-weight:600}
+.pc-meta span+span::before{content:"·";margin-right:14px}
+.pc-info h1{font-family:var(--disp);font-weight:400;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.02;margin:0 0 14px;text-wrap:balance}
+.pc-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.pc-chips span{padding:6px 12px;border-radius:999px;background:var(--sup);font-size:.88rem;font-weight:600}
+.pc-caja{padding:20px;border-radius:20px;background:var(--sup);box-shadow:0 0 0 1px var(--linea)}
+.pc-fila{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--linea);font-variant-numeric:tabular-nums}
+.pc-fila b,.pc-fila>span:last-child{white-space:nowrap}
+.pc-total{border:0;padding-top:14px}.pc-total span{font-family:var(--disp);font-size:1.25rem}.pc-total b{font-family:var(--disp);font-weight:400;font-size:2rem;color:var(--cartel)}
+.pc-total b.late{animation:sube .45s cubic-bezier(.2,1.4,.4,1)}@keyframes sube{50%{transform:scale(1.12)}}
+.pc-ahorro{margin:6px 0 0;font-size:.95rem}.pc-ahorro b{color:var(--verde)}
+.pc-nota{margin:10px 0 0;font-size:.85rem;color:var(--gris)}
+.pc-caja .acepto{margin-top:14px;font-size:.85rem;max-width:none}.pc-caja #pp{max-width:none;margin-top:12px}
+.pc-pasos{list-style:none;counter-reset:p;padding:0;margin:16px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pc-pasos li{counter-increment:p;font-size:.8rem;line-height:1.3;color:var(--gris)}.pc-pasos li::before{content:counter(p);display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--cartel);color:#1b2340;font-weight:800;font-size:.78rem;margin-bottom:6px}
+.pc-pasos b{display:block;color:var(--tinta);font-size:.88rem}
+.pc-bajo{grid-column:1/-1;display:grid;grid-template-columns:1.15fr 1fr;gap:24px 48px}
+.pc-bajo section{padding:22px;border-radius:20px;background:var(--sup)}
+.pc-bajo h2{font-size:1.35rem;margin:0 0 14px}.pc-bajo h3{font-size:1rem;margin:20px 0 6px}
+.pc-specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:0}
+.pc-specs div{padding:10px 12px;border-radius:12px;background:var(--fondo)}.pc-specs dt{font-size:.78rem;color:var(--gris);font-weight:700}.pc-specs dd{margin:2px 0 0;font-weight:600}
+.pc-texto{margin:0;white-space:pre-line;overflow-wrap:anywhere}.pc-aviso{margin:10px 0 0;padding:10px 12px;border-radius:12px;background:var(--fondo);font-size:.9rem}
+.pc-rev{margin:0;padding-left:1.2em;display:grid;gap:6px}
+@media (max-width:860px){.compra{grid-template-columns:1fr;gap:22px}.pc-media{position:static}.pc-foto{aspect-ratio:1}.pc-bajo{grid-template-columns:1fr}.pc-pasos{grid-template-columns:repeat(2,1fr)}}
+
 </style><script data-noptimize="1" data-cfasync="false" data-cmp-ab="2">(function(){var s=document.createElement("script");s.async=1;s.setAttribute("data-cmp-ab","2");s.src="https://emrldco.com/NTk1MDE1.js?t=595015";document.head.appendChild(s);})();</script></head><body><header class="top"><div class="wrap nav"><a class="logo" href="../index.html"><img src="../img/mascota.png" alt="">Chorízalo</a>
 <a class="l" href="../ofertas.html">Chollos</a><a class="l" href="../consejos.html">Consejos</a><a class="l" href="../index.html#como">Te lo compramos</a><a class="l" href="../index.html#pro">PRO</a>
 <a class="btn osc" href="https://t.me/addlist/U82eonj36ehlZmY0" target="_blank" rel="noopener">Telegram</a></div></header><main class="wrap"><section class="chead"><img src="../img/pokemon.webp" alt=""><div><h1>Pokémon</h1><p>Producto sellado Pokémon por debajo de Cardmarket.</p>
@@ -205,7 +236,7 @@ function compensa(d){const x=desglose(d,false);return x&&d.r&&x.total<=d.r*0.92?
 function consigue(d,env){return d.c!=='tren'?desglose(d,env):null}
 const R="../";const LIM=240;window.PRESET="pokemon";
 const S={cat:new URLSearchParams(location.search).get('c')||window.PRESET||'',k:new URLSearchParams(location.search).get('k')||'',q:'',sort:'new',min:0};
-const SUBN={"chollo": {"consolas": "Consolas", "relojes": "Relojes", "moviles": "Móviles", "portatiles": "Portátiles y tablets", "lego": "LEGO", "audio": "Auriculares y altavoces"}, "moda": {"ropa": "Ropa", "zapatillas": "Zapatillas y calzado"}, "pokemon": {"upc": "Colecciones premium", "display": "Cajas de sobres", "etb": "Cajas Entrenador Élite", "bundle": "Booster bundle"}, "libro": {"manga": "Manga", "comics": "Cómics y tebeos", "novela": "Novelas y sagas", "ingles": "Inglés", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "gasolina": "Gasolina", "otros": "Otros", "hibrido": "Híbridos", "electrico": "Eléctricos"}, "moto": {"otros": "Otros", "gasolina": "Gasolina", "electrico": "Eléctricos"}, "casa": {"venta": "Venta", "alquiler": "Alquiler"}, "tren": {"ave": "AVE", "ouigo": "Ouigo", "avlo": "Avlo", "alvia": "Alvia"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const SUBN={"chollo": {"audio": "Auriculares y altavoces", "hogar": "Hogar y cocina", "consolas": "Consolas", "relojes": "Relojes", "moviles": "Móviles", "portatiles": "Portátiles y tablets", "lego": "LEGO"}, "moda": {"ropa": "Ropa", "zapatillas": "Zapatillas y calzado"}, "pokemon": {"upc": "Colecciones premium", "display": "Cajas de sobres", "etb": "Cajas Entrenador Élite", "bundle": "Booster bundle"}, "libro": {"manga": "Manga", "comics": "Cómics y tebeos", "novela": "Novelas y sagas", "ingles": "Inglés", "colec": "Coleccionismo", "bachillerato": "Texto Bachillerato"}, "coche": {"diesel": "Diésel", "gasolina": "Gasolina", "otros": "Otros", "hibrido": "Híbridos", "electrico": "Eléctricos"}, "moto": {"otros": "Otros", "gasolina": "Gasolina", "electrico": "Eléctricos"}, "casa": {"venta": "Venta", "alquiler": "Alquiler"}, "tren": {"ave": "AVE", "ouigo": "Ouigo", "avlo": "Avlo", "alvia": "Alvia"}};const sinac=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 function subs(){const el=document.getElementById('subs');if(!el)return;const N=SUBN[S.cat];
  if(!S.cat||!N||Object.keys(N).length<2){el.hidden=true;el.innerHTML='';return}
  const cnt={};ALL.forEach(d=>{if(d.c===S.cat)cnt[d.k]=(cnt[d.k]||0)+1});
