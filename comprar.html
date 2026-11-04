@@ -214,7 +214,7 @@ footer a{color:var(--tinta)}
 .cz-p{padding:4px 18px 18px;display:grid;gap:10px}
 .cz-p svg{width:100%;height:auto;display:block}
 .cz-p rect.otro{fill:var(--linea)}.cz-p rect.tu{fill:var(--cartel)}
-.cz-p line.med{stroke:var(--pimenton);stroke-width:2;stroke-dasharray:4 3}.cz-p line.eje{stroke:var(--linea)}
+.cz-p line.tuL{stroke:var(--cartel);stroke-width:4}.cz-p line.med{stroke:var(--pimenton);stroke-width:2;stroke-dasharray:4 3}.cz-p line.eje{stroke:var(--linea)}
 .cz-p text.et{fill:var(--gris);font-size:11px;font-family:inherit}
 .cz-ley{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0;font-size:.82rem;color:var(--gris)}
 .cz-ley span{display:inline-flex;align-items:center;gap:6px}.sw{display:inline-block;width:12px;height:12px;border-radius:3px}.sw.tu{background:var(--cartel)}.sw.med{width:3px;height:14px;background:var(--pimenton);border-radius:0}
@@ -264,9 +264,9 @@ function czCalc(P,base){if(!P||!P.q||P.n<15)return null;const q=P.q;let b;
  return{mas:mas,nota:nota,v:V[0],frase:V[1],med:q[10],raro:base<q[1]*0.85}}
 function czHist(P,base){const W=320,H=128,B=22,T=10,n=P.c.length,bw=W/n,mx=Math.max(...P.c,1),fin=P.lo+P.w*n;
  const xOf=v=>Math.max(1,Math.min(W-1,(v-P.lo)/(fin-P.lo)*W));let s='';
- P.c.forEach((c,i)=>{const h=Math.max(c?2:0,Math.round((H-B-T)*c/mx)),a=P.lo+i*P.w;const tu=(base>=a&&base<a+P.w)||(i===0&&base<a)||(i===n-1&&base>=fin);
+ P.c.forEach((c,i)=>{const h=Math.max(c?2:0,Math.round((H-B-T)*c/mx)),a=P.lo+i*P.w;const tu=base>=a&&base<a+P.w;
   s+=`<rect x="${(i*bw+1).toFixed(1)}" y="${H-B-h}" width="${(bw-2).toFixed(1)}" height="${h}" rx="2" class="${tu?'tu':'otro'}"><title>${eur(a)} – ${eur(a+P.w)}: ${c} anuncios</title></rect>`});
- const xm=xOf(P.q[10]).toFixed(1);
+ const xm=xOf(P.q[10]).toFixed(1);if(base<P.lo||base>=fin){const xb=base<P.lo?2:W-2;s+=`<line x1="${xb}" x2="${xb}" y1="${T-6}" y2="${H-B}" class="tuL"/>`}
  s+=`<line x1="${xm}" x2="${xm}" y1="${T-6}" y2="${H-B}" class="med"/><line x1="0" x2="${W}" y1="${H-B}" y2="${H-B}" class="eje"/>`;
  s+=`<text x="0" y="${H-6}" class="et">${eur(P.lo)}</text><text x="${W}" y="${H-6}" class="et" text-anchor="end">${eur(fin)}</text>`;
  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Precios de ${P.n} anuncios parecidos, de ${eur(P.q[0])} a ${eur(P.q[20])}; mediana ${eur(P.q[10])}">${s}</svg>`}
