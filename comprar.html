@@ -315,7 +315,7 @@ Promise.all([fetch('data/ofertas.json?'+Date.now()).then(r=>r.json()),fetch('dat
   <ol class="pc-pasos"><li><b>Pre-reservas</b><span>Sin cobro: el dinero sigue en tu PayPal</span></li><li><b>Regateamos</b><span>Fotos, estado y descuento</span></li><li><b>Te confirmamos</b><span>Solo entonces se cobra</span></li><li><b>Lo recibes</b><span>Con envío protegido si lo marcas</span></li></ol>
  </div></div>
  <div class="pc-bajo">
-  ${specs?`<section class="pc-tec"><h2>Ficha técnica${f&&f.n?' del '+esc(f.n):''}</h2>${specs}<p class="pc-ref">Datos de referencia del modelo. Lo que cambie en esta unidad (capacidad, color, estado) se lo confirmamos al vendedor.</p></section>`:''}
+  ${specs?`<section class="pc-tec"><h2>Ficha técnica${f&&f.n?': '+esc(f.n):''}</h2>${specs}<p class="pc-ref">Datos de referencia del modelo. Lo que cambie en esta unidad (capacidad, color, estado) se lo confirmamos al vendedor.</p></section>`:''}
   <section class="pc-revs"><h2>Antes de comprar revisamos</h2>${rev||'<ul class="pc-rev"><li>Que coincida con el anuncio</li><li>Fotos de los detalles que importan</li><li>El historial del vendedor</li></ul>'}
    <div class="humano"><img src="img/mascota.png" alt="" width="44" height="44"><p><b>Detrás de Chorízalo hay una persona.</b> <a href="${CT}${d.id}" target="_blank" rel="noopener">Pregúntanos lo que quieras de este chollo</a>.</p></div></section>
  </div>`;
