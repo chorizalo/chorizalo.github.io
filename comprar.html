@@ -184,8 +184,8 @@ function comision(p){return p<=5?1:p<=10?2:p<=15?3:p<=25?4:p<=40?5:p<=55?6:Math.
 function desglose(d,env){const e=ENVIO[d.c];if(e==null||!d.p)return null;const g=comision(d.p),ge=comision(e);
  const base=Math.ceil((d.p+g+0.35)/(1-0.029)),con=Math.ceil((d.p+g+e+ge+0.35)/(1-0.029));
  return{base:base,conEnvio:con,extraEnvio:con-base,total:env?con:base}}
-function compensa(d){const x=desglose(d);return x&&d.r&&x.total<=d.r*0.92?x:null}
-function consigue(d){return d.c!=='tren'?desglose(d):null}
+function compensa(d){const x=desglose(d,false);return x&&d.r&&x.total<=d.r*0.92?x:null}
+function consigue(d,env){return d.c!=='tren'?desglose(d,env):null}
 const TG="https://t.me/addlist/U82eonj36ehlZmY0",PPL="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-color.svg",CT="https://t.me/RadarChollosPhantom_bot?start=pedido_";
 const id=new URLSearchParams(location.search).get('id');const $=s=>document.querySelector(s);
 fetch('data/ofertas.json?'+Date.now()).then(r=>r.json()).then(j=>{
