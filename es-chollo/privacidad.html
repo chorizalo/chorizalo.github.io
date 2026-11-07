@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad de «¿Es chollo?» · Chorízalo</title>
+<meta name="description" content="Qué datos lee la extensión «¿Es chollo?» de Chorízalo, para qué y qué no hace con ellos.">
+<style>
+  :root { --tinta: #110a18; --ciruela: #1f1430; --crema: #f7eedf; --lavanda: #b9aec4; --ambar: #ffb81c; --linea: rgb(247 238 223 / .12); color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html { background: var(--tinta); }
+  body { margin: 0; padding: clamp(16px, 4vw, 48px) clamp(16px, 4vw, 40px) 64px; color: var(--crema); font: 16.5px/1.6 "Atkinson Next", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; }
+  h1 { font: 800 clamp(1.8rem, 5vw, 2.5rem)/1.1 "Anybody", "Arial Black", Impact, system-ui, sans-serif; margin: 0 0 6px; }
+  h2 { font: 800 1.2rem/1.25 system-ui, sans-serif; margin: 30px 0 8px; color: var(--ambar); }
+  p, li { max-width: 68ch; }
+  ul { padding-left: 20px; }
+  li { margin: 4px 0; }
+  a { color: var(--ambar); text-underline-offset: 3px; }
+  .fecha { color: var(--lavanda); margin: 0 0 22px; }
+  .resumen { background: var(--ciruela); border: 1px solid var(--linea); border-radius: 18px; padding: 16px 20px; }
+  .resumen p { margin: 6px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; margin-top: 8px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--linea); }
+  th { color: var(--lavanda); font-weight: 700; }
+  .tabla { overflow-x: auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Política de privacidad de «¿Es chollo?»</h1>
+  <p class="fecha">Extensión de navegador de Chorízalo · Última actualización: 7 de noviembre de 2026</p>
+
+  <div class="resumen">
+    <p><b>En corto:</b> la extensión lee el título y el precio del anuncio que tienes abierto en Wallapop, Vinted o Milanuncios, calcula la nota en tu propio navegador y no guarda ni envía esos datos a nadie. No recoge datos personales tuyos ni del vendedor.</p>
+  </div>
+
+  <h2>Quién es el responsable</h2>
+  <p>Chorízalo (<a href="https://chorizalo.com/">chorizalo.com</a>). Contacto: <b>contacto@chorizalo.com</b>.</p>
+
+  <h2>Qué datos trata la extensión</h2>
+  <div class="tabla">
+  <table>
+    <thead><tr><th>Dato</th><th>Dónde y cuándo</th><th>Para qué</th><th>¿Sale del navegador?</th></tr></thead>
+    <tbody>
+      <tr><td>Título y precio del anuncio</td><td>Solo en la ficha de anuncio de Wallapop, Vinted o Milanuncios que abres tú. Para encontrarlos mira los datos estructurados de la ficha (schema.org) o el título visible, y solo se queda con el título y el precio</td><td>Calcular la nota comparándolo con precios de anuncios parecidos</td><td>No. Se usa en memoria y se descarta al cerrar o cambiar de página</td></tr>
+      <tr><td>Dirección de la página (URL) del anuncio</td><td>La misma ficha</td><td>Saber que es una ficha y detectar cuándo cambias de anuncio</td><td>No</td></tr>
+      <tr><td>Tus ajustes (webs activadas, esquina, si aceptaste el aviso)</td><td>Almacenamiento local de la extensión</td><td>Recordar tus preferencias</td><td>No</td></tr>
+      <tr><td>Ficheros públicos de precios y reglas</td><td>Se descargan de chorizalo.com</td><td>Tener los precios de referencia</td><td>Es una descarga: no se envía nada tuyo ni del anuncio</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Qué no hace nunca</h2>
+  <ul>
+    <li>No usa ni guarda el nombre o el perfil del vendedor, las fotos, la descripción ni los mensajes. No lee tu cuenta, tus cookies, tu historial ni ninguna otra web.</li>
+    <li>No envía a Chorízalo ni a nadie lo que ves, lo que buscas ni los anuncios que abres.</li>
+    <li>No usa analítica, publicidad, enlaces de afiliado ni identificadores.</li>
+    <li>No vende ni cede datos, ni los usa para nada distinto de enseñarte la nota.</li>
+  </ul>
+
+  <h2>Conexiones de red</h2>
+  <p>La única conexión que hace la extensión es descargar dos ficheros públicos (<code>precios.json</code> y <code>reglas.json</code>) de <code>chorizalo.com</code>, como mucho cada 12 horas o cuando pulsas «Actualizar precios ahora». Es la misma petición para todo el mundo, sin cookies ni identificadores. Como en cualquier descarga, el servicio que aloja la web (GitHub Pages) recibe tu dirección IP y los datos técnicos habituales de la conexión; Chorízalo no tiene acceso a esos registros.</p>
+  <p>Si pulsas un enlace a chorizalo.com desde la insignia, se abre la web en una pestaña nueva como cualquier enlace.</p>
+
+  <h2>Base legal y consentimiento</h2>
+  <p>Antes de leer ningún anuncio, la extensión te enseña qué lee y qué no, y solo funciona si pulsas «Activar». Puedes retirarlo en cualquier momento desde el icono de la extensión («Retirar permiso y borrar sus datos») o desinstalándola: se borra todo lo que guardaba.</p>
+
+  <h2>Cuánto se conserva</h2>
+  <p>El título y el precio del anuncio no se conservan. Los ajustes y los ficheros públicos descargados se guardan en tu navegador hasta que retiras el permiso o desinstalas la extensión.</p>
+
+  <h2>Uso limitado</h2>
+  <p>El uso que hace «¿Es chollo?» de la información que recibe cumple la <a href="https://developer.chrome.com/docs/webstore/program-policies/" target="_blank" rel="noopener">Política de datos de usuario de la Chrome Web Store</a>, incluidos los requisitos de Uso limitado: los datos se usan solo para ofrecer la función única de la extensión, no se transfieren, no se usan para publicidad ni para evaluar la solvencia de nadie, y ninguna persona los lee.</p>
+
+  <h2>Tus derechos</h2>
+  <p>Como la extensión no recoge datos personales, no hay datos tuyos en nuestro poder que consultar, corregir o borrar. Si tienes cualquier duda, escribe a contacto@chorizalo.com. También puedes reclamar ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es/" target="_blank" rel="noopener">aepd.es</a>).</p>
+
+  <h2>Cambios</h2>
+  <p>Si esta política cambia, se actualizará esta página y la fecha de arriba. Si algún día la extensión necesitara tratar más datos, te lo pediría antes con un aviso nuevo.</p>
+
+  <p style="margin-top:32px;color:var(--lavanda)">«¿Es chollo?» no está afiliada con Wallapop, Vinted ni Milanuncios.</p>
+</main>
+</body>
+</html>
